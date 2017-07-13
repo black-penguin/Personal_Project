@@ -1,0 +1,10 @@
+.HAM
+{
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 5px;
+  width: 60px;
+  float: right;
+  margin: 10px;
+  cursor: pointer;
+}
