@@ -1,15 +1,15 @@
-.nav
+/*.nav
 {
-  /*list-style-type: none;
+  list-style-type: none;
 	position: fixed;
   padding:10px;
   font-size:32px;
   background-color: grey;
-  justify-content: space-around;*/
+  justify-content: space-around;
   display: none;
 }
 
-/*.nav span
+.nav span
 {
 
   color:white;

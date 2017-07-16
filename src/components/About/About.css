@@ -1,0 +1,16 @@
+#about
+{
+  padding: 25px;
+}
+
+.about
+{
+  background-color: grey;
+  /*margin: 10px;*/
+  height: 75vh;
+  opacity: .85;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}

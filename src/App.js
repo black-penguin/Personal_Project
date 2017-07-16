@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <img src={background} alt="bear lake"/>
+        <img src={background} className="background" alt="bear lake"/>
         <Nav />
         { router }
       </div>

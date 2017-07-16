@@ -1,6 +1,14 @@
-div img
+.background
 {
-  width: 100%;
+  width: 150%;
   z-index: -1;
   position: fixed;
+}
+
+@media (min-width: 750px)
+{
+  .background
+  {
+    width: 100%;
+  }
 }
