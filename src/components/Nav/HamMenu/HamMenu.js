@@ -1,9 +1,9 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 
-import "./Ham_menu.css";
+import "./HamMenu.css";
 
-const Ham_menu=(props) =>
+const HamMenu=(props) =>
 {
     return (
       <div className="menu" style={{"display":props.display}} onClick={()=> props.showNav()}>
@@ -23,4 +23,4 @@ const Ham_menu=(props) =>
     )
 }
 
-export default Ham_menu;
+export default HamMenu;

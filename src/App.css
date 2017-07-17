@@ -3,6 +3,6 @@
   z-index: -1;
   position: fixed; }
 
-@media (min-width: 750px) {
+@media (min-width: 1025px) {
   .background {
     width: 100%; } }

@@ -1,7 +1,6 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
 import Ham from "./Ham/Ham";
-import Ham_menu from "./Ham_menu/Ham_menu";
+import HamMenu from "./HamMenu/HamMenu";
 
 import "./Nav.css"
 
@@ -20,10 +19,10 @@ export default class Nav extends Component
 
   showNav()
   {
-    if(this.state.display=="none")
+    if(this.state.display==="none")
       this.setState({display:"block"});
     else
-      this.setState({display:"none"})
+      this.setState({display:"none"});
   }
 
   render()
@@ -32,7 +31,7 @@ export default class Nav extends Component
       <div>
         <div>
           <Ham showNav={this.showNav}/>
-          <Ham_menu display={this.state.display} showNav={this.showNav}/>
+          <HamMenu display={this.state.display} showNav={this.showNav}/>
         </div>
       </div>
     );
