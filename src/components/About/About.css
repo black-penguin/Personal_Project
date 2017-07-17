@@ -1,16 +1,16 @@
-#about
-{
+#about {
   padding: 25px;
-}
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  font-size: 90px; }
 
-.about
-{
+.about {
   /*margin: 10px;*/
-  height: 75vh;
+  height: 73vh;
   background-color: #454444;
   opacity: .85;
   margin-top: 10px;
   margin-right: 20px;
   margin-bottom: 20px;
-  margin-left: 20px;
-}
+  margin-left: 20px; }

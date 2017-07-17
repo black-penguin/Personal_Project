@@ -1,18 +1,9 @@
-.home
-{
-  display: flex;
-  flex-direction: column;
-}
+.home {
+  font-size: 75px; }
+  .home h1 {
+    color: white;
+    display: flex;
+    justify-content: space-around; }
 
-h1
-{
-  color: white;
-  font-size: 30px;
-  display: flex;
-  justify-content: space-around;
-}
-
-#title
-{
-  padding-top: 25px;
-}
+#title {
+  padding-top: 25px; }

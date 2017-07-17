@@ -1,0 +1,22 @@
+#portfolio
+{
+  padding: 25px;
+  font-size: 90px;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.imgs
+{
+  padding-right: 5%;
+  padding-left: 10%;
+}
+
+@media (min-width: 750px)
+{
+  .imgs
+  {
+    padding-left: 5%;
+  }
+}
