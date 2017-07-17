@@ -13,6 +13,12 @@ const Ham_menu=(props) =>
         <Link className="nav" to="/about">
           <h4>About</h4>
         </Link>
+        <Link className="nav" to="/portfolio">
+          <h4>Portfolio</h4>
+        </Link>
+        <Link className="nav" to="/contact">
+          <h4>Contact</h4>
+        </Link>
       </div>
     )
 }

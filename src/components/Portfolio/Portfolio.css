@@ -1,0 +1,17 @@
+#portfolio
+{
+  padding: 25px;
+}
+
+.portfolio
+{
+  background-color: #454444;
+  width: 175px;
+  height: 125px;
+  margin: 17px;
+  display: inline-flex;
+}
+
+.pictures
+{
+}
