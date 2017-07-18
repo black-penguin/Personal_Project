@@ -32,5 +32,6 @@
   "main": "server/index.js",
   "keywords": [],
   "author": "",
+  "proxy":"localhost:3001"
   "license": "ISC"
 }

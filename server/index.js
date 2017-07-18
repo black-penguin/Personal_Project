@@ -13,6 +13,8 @@ massive( connectionString ).then( dbInstance => app.set('db', dbInstance) );
 
 //session
 app.use(session({
+  resave: true,
+  saveUninitialized: true,
   secret:config.sessionsecret
 }));
 
@@ -43,7 +45,7 @@ app.get('/auth', passport.authenticate('auth0'));
 
 app.get('/auth/callback', passport.authenticate('auth0',
 {
-  successRedirect: '/me',
+  successRedirect: 'http://localhost:3000/',
   failureRedirect:'/auth'
 }));
 
@@ -59,7 +61,10 @@ passport.deserializeUser(function(obj, done)
 
 app.get('/me', (req, res)=>
 {
-  res.send(req.user)
+  if (!req.user)
+    return res.status(404);
+  else
+    res.status(200).send(req.user);
 });
 
 app.listen(config.port, console.log("it works!"));
