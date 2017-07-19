@@ -62,9 +62,14 @@ passport.deserializeUser(function(obj, done)
 app.get('/me', (req, res)=>
 {
   if (!req.user)
-    return res.status(404);
+    return res.send("");
   else
     res.status(200).send(req.user);
 });
+
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('http://localhost:3000/');
+})
 
 app.listen(config.port, console.log("it works!"));
