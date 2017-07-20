@@ -6,6 +6,7 @@ import About from './components/About/About';
 import Portfolio from './components/Portfolio/Portfolio';
 import Contact from './components/Contact/Contact';
 import Profile from './components/Profile/Profile';
+import Type from './components/Type/Type';
 
 export default (
   <Switch>
@@ -14,5 +15,6 @@ export default (
     <Route component={Portfolio} path="/portfolio" />
     <Route component={Contact} path="/contact" />
     <Route component={Profile} path="/profile" />
+    <Route component={Type} path="/type" />
   </Switch>
 )

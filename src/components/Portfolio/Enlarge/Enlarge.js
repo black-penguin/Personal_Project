@@ -12,7 +12,7 @@ const Enlarge=(props) =>
               <img className="enlarge" src={props.picture} alt={props.alt}/>
             </span>
             <div className="add">
-              <Link className="nav" to="/">
+              <Link className="nav" to="/type">
                 Add to Cart
               </Link>
             </div>
