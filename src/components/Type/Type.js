@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import Canvas from './Canvas/Canvas';
+import Metal from './Metal/Metal';
 import "./Type.css";
 
 export default class Type extends Component
@@ -10,29 +12,40 @@ export default class Type extends Component
     this.state=
     {
       selectC:"",
+      displayC:"none",
       selectM:"none",
-      selected:"none"
+      displayM:"none"
     }
     this.selectC=this.selectC.bind(this);
     this.selectM=this.selectM.bind(this);
+    this.reset=this.reset.bind(this);
   }
 
   selectC()
   {
-    console.log(this.state);
     this.setState({
       selectC:"show",
+      displayC:"block",
       selectM:"",
-      selected:"Canvas",
+      displayM:"none"
     });
   }
   selectM()
   {
-    console.log(this.state);
     this.setState({
       selectC:"",
+      displayC:"none",
       selectM:"show",
-      selected:"metal"
+      displayM:"block"
+    });
+  }
+  reset()
+  {
+    this.setState({
+      selectC:"",
+      displayC:"none",
+      selectM:"",
+      displayM:"none"
     });
   }
 
@@ -44,6 +57,9 @@ export default class Type extends Component
         <div className="type">
           <h1 className={`item ${this.state.selectC}`}  onClick={this.selectC}>Canvas</h1>
           <h1 className={`item ${this.state.selectM}`}  onClick={this.selectM}>Metal</h1>
+          <h1 id="reset" className={`item`}  onClick={this.reset}>Reset</h1>
+          <Canvas display={this.state.displayC} />
+          <Metal display={this.state.displayM} />
         </div>
       </div>
     );
