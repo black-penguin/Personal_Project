@@ -1,41 +1,63 @@
-/* The Modal (background) */
 .modal
 {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0%;
     top: 0%;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
     padding: 5px;
+    .animate
+    {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.5s
+    }
+    .modal-content
+    {
+      margin: 5% auto 25% auto;
+      width: 88%;
+      .imgcontainer
+      {
+        margin-bottom: 10%;
+        .enlarge
+        {
+          width: 100%;
+          color: white;
+          cursor: pointer;
+        }
+
+        .enlarge:hover
+        {
+          opacity: 0.6;
+        }
+
+      }
+    }
 }
 
-/* Modal Content/Box */
-.modal-content
+.add
 {
-    margin: 5% auto 25% auto;
-    width: 88%;
+  float: right;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 15px;
+  border: 2px solid white;
+  font-size: 25px;
+  .nav
+  {
+    color: white;
+    text-decoration:  none;
+  }
 }
 
-.container
-{
-  padding-top: 5vh;
-}
-
-.imgcontainer
-{
-  margin-bottom: 10%;
-}
-
-.animate
-{
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.5s
-}
+// .container
+// {
+//   padding-top: 5vh;
+// }
 
 @-webkit-keyframes animatezoom {
     from {-webkit-transform: scale(0)}
@@ -47,17 +69,6 @@
     to {transform: scale(1)}
 }
 
-.enlarge
-{
-  width: 100%;
-  color: white;
-  cursor: pointer;
-}
-
-.enlarge:hover
-{
-    opacity: 0.6;
-}
 
 @media (min-width: 750px)
 {

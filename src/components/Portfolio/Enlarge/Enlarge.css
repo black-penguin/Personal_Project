@@ -1,39 +1,40 @@
-/* The Modal (background) */
 .modal {
   display: none;
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
   z-index: 1;
-  /* Sit on top */
   left: 0%;
   top: 0%;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
   background-color: black;
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
   padding: 5px; }
+  .modal .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.5s; }
+  .modal .modal-content {
+    margin: 5% auto 25% auto;
+    width: 88%; }
+    .modal .modal-content .imgcontainer {
+      margin-bottom: 10%; }
+      .modal .modal-content .imgcontainer .enlarge {
+        width: 100%;
+        color: white;
+        cursor: pointer; }
+      .modal .modal-content .imgcontainer .enlarge:hover {
+        opacity: 0.6; }
 
-/* Modal Content/Box */
-.modal-content {
-  margin: 5% auto 25% auto;
-  width: 88%; }
-
-.container {
-  padding-top: 5vh; }
-
-.imgcontainer {
-  margin-bottom: 10%; }
-
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.5s; }
+.add {
+  float: right;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 15px;
+  border: 2px solid white;
+  font-size: 25px; }
+  .add .nav {
+    color: white;
+    text-decoration: none; }
 
 @-webkit-keyframes animatezoom {
   from {
@@ -46,14 +47,6 @@
     transform: scale(0); }
   to {
     transform: scale(1); } }
-
-.enlarge {
-  width: 100%;
-  color: white;
-  cursor: pointer; }
-
-.enlarge:hover {
-  opacity: 0.6; }
 
 @media (min-width: 750px) {
   .modal-content {

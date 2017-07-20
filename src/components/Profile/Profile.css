@@ -1,0 +1,29 @@
+#profile {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  font-size: 90px; }
+
+.profile {
+  color: white;
+  height: 75vh;
+  background-color: #454444;
+  opacity: .85;
+  margin-top: 10px;
+  margin-right: 25px;
+  margin-left: 25px;
+  padding: 20px;
+  font-size: 30px; }
+  .profile img {
+    width: 80px;
+    margin: 10px;
+    margin-bottom: 20px;
+    border-radius: 50px; }
+  .profile h1 {
+    border: 2px solid white;
+    padding: 5px;
+    margin-bottom: 10px; }
+
+@media (min-width: 750px) {
+  #profile {
+    font-size: 40px; } }

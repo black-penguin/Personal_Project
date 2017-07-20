@@ -6,7 +6,7 @@ const User=(props) =>
 {
     return (
       <div className="user" style={{"display":props.display}} onClick={()=> props.showUser()}>
-        <Link className="nav" to="/profile/:id">
+        <Link className="nav" to="/profile">
           My Profile
         </Link>
         <a className="nav" href="http://localhost:3001/logout">

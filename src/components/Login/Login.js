@@ -30,9 +30,9 @@ export default class Login extends Component
     axios.get('/me')
     .then( res =>
       {
-        console.log('res', res);
         if(res.data.displayName)
         this.setState({
+          image:res.data.picture,
           user: res.data.displayName
         })
       })
@@ -49,7 +49,9 @@ export default class Login extends Component
     const login_user=(
                      <div>
                        <div id="user" onClick={()=> this.showUser()}>
-                          <h1>{this.state.user}</h1>
+                          <h1>
+                            {this.state.user}
+                          </h1>
                        </div>
                        <User display={this.state.display} showUser={this.showUser}/>
                      </div>)

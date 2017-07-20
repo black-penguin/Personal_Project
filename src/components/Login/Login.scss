@@ -32,10 +32,13 @@
 
 @media (min-width: 750px)
 {
-  #login
+  .login
   {
-    padding: 4px;
-    font-size: 20px;
-    width: 60px;
+    #login
+    {
+      padding: 4px;
+      font-size: 20px;
+      width: 60px;
+    }
   }
 }
