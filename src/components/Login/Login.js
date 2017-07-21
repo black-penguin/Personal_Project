@@ -31,10 +31,11 @@ export default class Login extends Component
     .then( res =>
       {
         if(res.data.displayName)
-        this.setState({
-          image:res.data.picture,
-          user: res.data.displayName
-        })
+        {
+          this.setState({
+            user: res.data.displayName
+          })
+        }
       })
   }
 
@@ -45,7 +46,7 @@ export default class Login extends Component
                       <a href="http://localhost:3001/auth">
                         <h1>Login</h1>
                       </a>
-                    </div>)
+                    </div>);
     const login_user=(
                      <div>
                        <div id="user" onClick={()=> this.showUser()}>
@@ -54,7 +55,7 @@ export default class Login extends Component
                           </h1>
                        </div>
                        <User display={this.state.display} showUser={this.showUser}/>
-                     </div>)
+                     </div>);
     return (
       <div className="login">
         {this.state.user===''?login_btn:login_user}

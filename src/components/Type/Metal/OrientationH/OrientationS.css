@@ -1,10 +1,10 @@
-.Orientation {
+.orientation_s {
   display: none;
   clear: left;
   padding-top: 20px; }
-  .Orientation h1 {
+  .orientation_s h1 {
     color: white; }
-  .Orientation .show {
+  .orientation_s .show {
     border: 2px solid white;
     border-radius: 5px;
     height: 55px; }

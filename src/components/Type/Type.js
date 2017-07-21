@@ -11,41 +11,41 @@ export default class Type extends Component
 
     this.state=
     {
-      selectC:"",
-      displayC:"none",
-      selectM:"none",
-      displayM:"none"
+      select1:"",
+      display1:"none",
+      select2:"none",
+      display2:"none"
     }
-    this.selectC=this.selectC.bind(this);
-    this.selectM=this.selectM.bind(this);
+    this.select1=this.select1.bind(this);
+    this.select2=this.select2.bind(this);
     this.reset=this.reset.bind(this);
   }
 
-  selectC()
+  select1()
   {
     this.setState({
-      selectC:"show",
-      displayC:"block",
-      selectM:"",
-      displayM:"none"
+      select1:"show",
+      display1:"block",
+      select2:"",
+      display2:"none"
     });
   }
-  selectM()
+  select2()
   {
     this.setState({
-      selectC:"",
-      displayC:"none",
-      selectM:"show",
-      displayM:"block"
+      select1:"",
+      display1:"none",
+      select2:"show",
+      display2:"block"
     });
   }
   reset()
   {
     this.setState({
-      selectC:"",
-      displayC:"none",
-      selectM:"",
-      displayM:"none"
+      select1:"",
+      display1:"none",
+      select2:"",
+      display2:"none"
     });
   }
 
@@ -55,11 +55,11 @@ export default class Type extends Component
       <div>
         <h1 id="type">Step 2</h1>
         <div className="type">
-          <h1 className={`item ${this.state.selectC}`}  onClick={this.selectC}>Canvas</h1>
-          <h1 className={`item ${this.state.selectM}`}  onClick={this.selectM}>Metal</h1>
+          <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>Canvas</h1>
+          <h1 className={`item ${this.state.select2}`}  onClick={this.select2}>Metal</h1>
           <h1 id="reset" className={`item`}  onClick={this.reset}>Reset</h1>
-          <Canvas display={this.state.displayC} />
-          <Metal display={this.state.displayM} />
+          <Canvas display={this.state.display1} />
+          <Metal display={this.state.display2} />
         </div>
       </div>
     );

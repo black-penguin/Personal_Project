@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Orientation from "./Orientation/Orientation";
+import OrientationS from "./OrientationS/OrientationS";
 import "./Metal.css";
 
 export default class Metal extends Component
@@ -12,7 +12,7 @@ export default class Metal extends Component
     {
       select1:"",
       display1:"none",
-      select2:"none",
+      select2:"",
       display2:"none"
     }
     this.select1=this.select1.bind(this);
@@ -25,18 +25,18 @@ export default class Metal extends Component
       select1:"show",
       display1:"block",
       select2:"",
-      display2:"none",
+      display2:"none"
     });
   }
   select2()
   {
     this.setState({
       select1:"",
-      display1:"block",
+      display1:"none",
       select2:"show",
+      display2:"block"
     });
   }
-
 
     render()
     {
@@ -44,7 +44,7 @@ export default class Metal extends Component
         <div className="metal" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>Single Image</h1>
           <h1 className={`item ${this.state.select2}`}  onClick={this.select2}>Collage</h1>
-          <Orientation display={this.state.display1} />
+          <OrientationS display={this.state.display1} />
         </div>
       );
     }

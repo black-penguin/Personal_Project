@@ -12,6 +12,8 @@
     color: white;
     text-decoration: none;
     font-size: 80px; }
+  .menu .nav:hover {
+    text-decoration: underline; }
 
 @media (min-width: 750px) {
   .menu {

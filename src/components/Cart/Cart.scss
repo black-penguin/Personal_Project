@@ -1,0 +1,46 @@
+#cart
+{
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  font-size: 50px;
+}
+
+.cart
+{
+  height: 75vh;
+  background-color: #454444;
+  opacity: .85;
+  margin-top: 10px;
+  margin-right: 25px;
+  margin-left: 25px;
+  #checkout
+  {
+    position: absolute;
+    right: 6vw;
+    bottom: 16vh;
+    div
+    {
+      padding: 10px;
+      border: 2px solid white;
+      border-radius: 5px;
+      width: 80px;
+      cursor: pointer;
+      font-size: 20px;
+      a
+      {
+        color: white;
+        text-decoration:  none;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 750px)
+{
+  #about
+  {
+    font-size: 40px;
+  }
+}

@@ -7,13 +7,16 @@
   position: fixed;
   top: 95px;
   left: 20px;
-  z-index: 1;
   background-color: #454444;
   .nav
   {
     color: white;
     text-decoration:  none;
     font-size: 50px;
+  }
+  .nav:hover
+  {
+    text-decoration: underline;
   }
 }
 
