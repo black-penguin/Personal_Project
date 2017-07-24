@@ -9,12 +9,16 @@
   }
   .sample
   {
-    background-color: white;
     border: 3px solid white;
     float: left;
     clear: both;
     margin-top: 10px;
     margin-right: 20px;
+    cursor: pointer;
+  }
+  .sample:hover
+  {
+    opacity: 0.6;
   }
   .select1
   {
@@ -45,5 +49,48 @@
   {
     width: 144px;
     height: 96px;
+  }
+}
+
+@media (min-width:1400px)
+{
+  .single_h
+  {
+    .sample
+    {
+      float: none;
+      margin-top: -130px;
+      margin-left: 60px;
+    }
+    .select1
+    {
+      width: 238px;
+      height: 187px;
+    }
+    .select2
+    {
+      width: 204px;
+      height: 204px;
+    }
+    .select3
+    {
+      width: 340px;
+      height: 272px;
+    }
+    .select4
+    {
+      width: 408px;
+      height: 272px;
+    }
+    .select5
+    {
+      width: 510px;
+      height: 340px;
+    }
+    .select6
+    {
+      width: 612px;
+      height: 408px;
+    }
   }
 }

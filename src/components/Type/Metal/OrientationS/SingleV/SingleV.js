@@ -1,28 +1,48 @@
 import React, {Component} from "react";
+import { connect } from "react-redux";
+import '../../../../../ducks/chooseImage';
+import Enlarge from "../../../Enlarge/Enlarge";
 import "./SingleV.css";
 
-export default class SingleV extends Component
+class SingleV extends Component
 {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
 
     this.state=
     {
-      select1:"",
+      display:"none",
+      select1:"show",
       select2:"",
       select3:"",
       select4:"",
       select5:"",
       select6:"",
-      size:""
+      size:"select1",
+      img:this.props.img
     }
+    this.showModal=this.showModal.bind(this);
+    this.closeModal=this.closeModal.bind(this);
     this.select1=this.select1.bind(this);
     this.select2=this.select2.bind(this);
     this.select3=this.select3.bind(this);
     this.select4=this.select4.bind(this);
     this.select5=this.select5.bind(this);
     this.select6=this.select6.bind(this);
+  }
+  showModal()
+  {
+    this.setState({
+      display:"block"
+    });
+  }
+
+  closeModal()
+  {
+    this.setState({
+      display:"none"
+    })
   }
 
   select1()
@@ -108,9 +128,18 @@ export default class SingleV extends Component
           <h1 className={`item ${this.state.select4}`}  onClick={this.select4}>16 x 24</h1>
           <h1 className={`item ${this.state.select5}`}  onClick={this.select5}>20 x 30</h1>
           <h1 className={`item ${this.state.select6}`}  onClick={this.select6}>24 x 36</h1>
-          <div className={`sample ${this.state.size}`}>
+          <div>
+            <img className={`sample ${this.state.size}`} src={this.state.img} alt={this.state.img} onClick={this.showModal} />
+            <Enlarge display={this.state.display} picture={this.state.img} close={this.closeModal} />
           </div>
         </div>
       );
     }
   }
+
+  function mapStatetoProps(state)
+  {
+    return {img: state.img};
+  }
+
+  export default connect(mapStatetoProps)(SingleV);

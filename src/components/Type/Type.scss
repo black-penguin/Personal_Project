@@ -27,6 +27,11 @@
     float: left;
     // border: none;
   }
+  .item:hover
+  {
+    text-decoration: underline;
+    font-weight: bold;
+  }
   .show
   {
     border: 2px solid white;
@@ -36,6 +41,11 @@
   #reset
   {
     float: right;
+  }
+  #reset:hover
+  {
+    text-decoration: underline;
+    font-weight: bold;
   }
 }
 
@@ -76,8 +86,16 @@
   }
   .type
   {
+    height:74vh;
     margin-right: 20px;
     margin-left: 20px;
+    padding: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    .item
+    {
+      font-size: 30px;
+    }
   }
 }
 

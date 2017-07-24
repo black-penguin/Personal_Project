@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
 import Canvas from './Canvas/Canvas';
 import Metal from './Metal/Metal';
 import "./Type.css";
@@ -57,7 +58,9 @@ export default class Type extends Component
         <div className="type">
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>Canvas</h1>
           <h1 className={`item ${this.state.select2}`}  onClick={this.select2}>Metal</h1>
-          <h1 id="reset" className={`item`}  onClick={this.reset}>Reset</h1>
+          <Link className="nav" to="/portfolio">
+            <h1 id="reset" className={`item`}  onClick={this.reset}>Reset</h1>
+          </Link>
           <Canvas display={this.state.display1} />
           <Metal display={this.state.display2} />
         </div>

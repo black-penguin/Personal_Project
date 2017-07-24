@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
-import '../../../../../ducks/chooseImage'
+import '../../../../../ducks/chooseImage';
+import Enlarge from "../../../Enlarge/Enlarge";
 import "./SingleH.css";
 
 class SingleH extends Component
@@ -11,6 +12,7 @@ class SingleH extends Component
 
     this.state=
     {
+      display:"none",
       select1:"show",
       select2:"",
       select3:"",
@@ -20,12 +22,28 @@ class SingleH extends Component
       size:"select1",
       img:this.props.img
     }
+    this.showModal=this.showModal.bind(this);
+    this.closeModal=this.closeModal.bind(this);
     this.select1=this.select1.bind(this);
     this.select2=this.select2.bind(this);
     this.select3=this.select3.bind(this);
     this.select4=this.select4.bind(this);
     this.select5=this.select5.bind(this);
     this.select6=this.select6.bind(this);
+  }
+
+  showModal()
+  {
+    this.setState({
+      display:"block"
+    });
+  }
+
+  closeModal()
+  {
+    this.setState({
+      display:"none"
+    })
   }
 
   select1()
@@ -103,7 +121,6 @@ class SingleH extends Component
 
     render()
     {
-      console.log("bug", this.state.img);
       return (
         <div className="single_h" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>11 x 14</h1>
@@ -113,7 +130,8 @@ class SingleH extends Component
           <h1 className={`item ${this.state.select5}`}  onClick={this.select5}>20 x 30</h1>
           <h1 className={`item ${this.state.select6}`}  onClick={this.select6}>24 x 36</h1>
           <div>
-            <img className={`sample ${this.state.size}`} src={this.state.img} alt={this.state.img}/>
+            <img className={`sample ${this.state.size}`} src={this.state.img} alt={this.state.img} onClick={this.showModal} />
+            <Enlarge display={this.state.display} picture={this.state.img} close={this.closeModal} />
           </div>
         </div>
       );
