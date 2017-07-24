@@ -105,8 +105,10 @@ app.post('/payment', function(req, res, next){
   source: req.body.token.id,
   description: 'Test charge from react app'
 }, function(err, charge) {
-    if (err) return res.sendStatus(500)
-    return res.sendStatus(200);
+    if (err)
+      return res.sendStatus(500);
+    return
+      res.sendStatus(200);
   // if (err && err.type === 'StripeCardError') {
   //   // The card has been declined
   // }

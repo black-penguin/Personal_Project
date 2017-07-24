@@ -1,23 +1,38 @@
 .menu {
   color: white;
-  padding: 30px;
+  padding: 15px;
+  padding-right: 20px;
   border: 3px solid white;
   border-radius: 10px;
   position: fixed;
-  top: 115px;
-  right: 20px;
+  top: 65px;
+  right: 15px;
   z-index: 1;
   background-color: #454444; }
   .menu .nav {
     color: white;
     text-decoration: none;
-    font-size: 80px; }
+    font-size: 30px; }
   .menu .nav:hover {
-    text-decoration: underline; }
+    text-decoration: underline;
+    font-weight: bold; }
 
 @media (min-width: 750px) {
   .menu {
     padding: 15px;
-    top: 85px; }
+    top: 70px; }
     .menu .nav {
       font-size: 35px; } }
+
+@media (min-width: 1400px) {
+  .menu {
+    top: 100px;
+    right: 30px; } }
+
+@media (min-width: 2000px) {
+  .menu {
+    padding: 40px;
+    top: 210px;
+    right: 50px; }
+    .menu .nav {
+      font-size: 85px; } }

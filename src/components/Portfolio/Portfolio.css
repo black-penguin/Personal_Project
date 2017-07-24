@@ -1,15 +1,28 @@
 #portfolio {
-  font-size: 90px;
   color: white;
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  font-size: 30px; }
 
 .imgs {
   padding-right: 5%;
   padding-left: 10%; }
 
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   #portfolio {
-    font-size: 40px; }
+    font-size: 60px; }
+  .imgs {
+    padding-left: 4%; } }
+
+@media (min-width: 1400px) {
+  #portfolio {
+    font-size: 60px; }
+  .imgs {
+    padding-left: 6%; } }
+
+@media (min-width: 2000px) {
+  #portfolio {
+    font-size: 100px;
+    margin-bottom: 30px; }
   .imgs {
     padding-left: 5%; } }

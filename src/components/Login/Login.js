@@ -33,7 +33,7 @@ export default class Login extends Component
         if(res.data.displayName)
         {
           this.setState({
-            user: res.data.displayName
+            user: res.data.name['givenName']
           })
         }
       })

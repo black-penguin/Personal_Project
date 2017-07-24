@@ -5,18 +5,20 @@
   border: 3px solid white;
   border-radius: 10px;
   position: fixed;
-  top: 95px;
-  left: 20px;
+  top: 57px;
+  left: 15px;
   background-color: #454444;
+  z-index: 1;
   .nav
   {
     color: white;
     text-decoration:  none;
-    font-size: 50px;
+    font-size: 30px;
   }
   .nav:hover
   {
     text-decoration: underline;
+    font-weight: bold;
   }
 }
 
@@ -28,6 +30,29 @@
     .nav
     {
         font-size: 30px;
+    }
+  }
+}
+
+@media (min-width: 1400px)
+{
+  .user
+  {
+    top: 95px;
+    left: 20px;
+  }
+}
+
+@media  (min-width: 2000px)
+{
+  .user
+  {
+    top: 150px;
+    left: 45px;
+    padding: 25px;
+    .nav
+    {
+        font-size: 70px;
     }
   }
 }

@@ -27,14 +27,18 @@
 
 .add {
   float: right;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px;
-  margin-top: 15px;
+  margin-top: 10px;
   border: 2px solid white;
-  font-size: 25px; }
+  font-size: 15px; }
   .add .nav {
     color: white;
     text-decoration: none; }
+
+.add:hover {
+  font-weight: bold;
+  border: 4px solid white; }
 
 @-webkit-keyframes animatezoom {
   from {
@@ -49,6 +53,22 @@
     transform: scale(1); } }
 
 @media (min-width: 750px) {
-  .modal-content {
-    margin: 3% auto 15% auto;
+  .modal .modal-content {
     width: 70%; } }
+
+@media (min-width: 1000px) {
+  .add {
+    font-size: 25px; } }
+
+@media (min-width: 1400px) {
+  .modal .modal-content {
+    width: 54%; }
+  .add {
+    font-size: 35px;
+    padding: 10px; } }
+
+@media (min-width: 2000px) {
+  .modal .modal-content {
+    width: 72%; }
+  .add {
+    font-size: 75px; } }

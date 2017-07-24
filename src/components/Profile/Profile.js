@@ -38,7 +38,7 @@ export default class Profile extends Component
       <div>
         <h1 id="profile">Profile</h1>
         <div className="profile">
-          <h1>Name - {this.state.user}</h1>
+          <h1>Name - {this.state.profile}</h1>
           <h1>Email - {this.state.email}</h1>
         </div>
       </div>

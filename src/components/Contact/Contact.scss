@@ -3,23 +3,71 @@
   color: white;
   display: flex;
   justify-content: space-around;
-  font-size: 90px;
+  font-size: 30px;
 }
 
 .contact
 {
-  height: 75vh;
+  height: 68vh;
   background-color: #454444;
   opacity: .85;
   margin-top: 10px;
-  margin-right: 25px;
-  margin-left: 25px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
-@media (min-width: 750px)
+@media (min-width:750px)
+{
+  .contact
+  {
+    height: 62vh;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
+
+@media (min-width:1000px)
+{
+  .contact
+  {
+    height: 64vh;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  @media (min-height: 590px)
+  {
+    .contact
+    {
+      height: 69vh;
+    }
+  }
+}
+
+@media (min-width:1400px)
 {
   #contact
   {
-    font-size: 40px;
+    font-size: 60px
+  }
+  .contact
+  {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
+@media (min-width:2000px)
+{
+  #contact
+  {
+    font-size: 95px
+  }
+  .contact
+  {
+    height: 71vh;
+    margin-top: 40px;
+    margin-right: 50px;
+    margin-left: 50px;
   }
 }

@@ -13,7 +13,7 @@ export default class OrientationS extends Component
     {
       select1:"",
       display1:"none",
-      select2:"none",
+      select2:"",
       display2:"none",
     }
     this.select1=this.select1.bind(this);

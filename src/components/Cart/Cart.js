@@ -53,7 +53,9 @@ export default class Cart extends Component
                       amount={3600}
                       currency="USD"
                       shippingAddress
-                      bitcoin />);
+                      bitcoin>
+
+                    </StripeCheckout>);
     return (
       <div>
         <h1 id="cart">Shopping Cart</h1>

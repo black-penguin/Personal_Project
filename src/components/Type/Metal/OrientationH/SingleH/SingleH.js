@@ -1,7 +1,9 @@
 import React, {Component} from "react";
+import { connect } from "react-redux";
+import display from '../../../../ducks/chooseImage'
 import "./SingleH.css";
 
-export default class SingleH extends Component
+class SingleH extends Component
 {
   constructor()
   {
@@ -14,8 +16,9 @@ export default class SingleH extends Component
       select3:"",
       select4:"",
       select5:"",
-      select6:"",
-      size:""
+      select6:"show",
+      size:"select6",
+      img:this.props.img
     }
     this.select1=this.select1.bind(this);
     this.select2=this.select2.bind(this);
@@ -100,6 +103,7 @@ export default class SingleH extends Component
 
     render()
     {
+      console.log("bug", this.state.img);
       return (
         <div className="single_h" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>11 x 14</h1>
@@ -107,10 +111,18 @@ export default class SingleH extends Component
           <h1 className={`item ${this.state.select3}`}  onClick={this.select3}>16 x 20</h1>
           <h1 className={`item ${this.state.select4}`}  onClick={this.select4}>16 x 24</h1>
           <h1 className={`item ${this.state.select5}`}  onClick={this.select5}>20 x 30</h1>
-          <h1 className={`item ${this.state.select6}`}  onClick={this.select6}>24 x 36</h1>
+          <h1 className={`item ${this.state.select6}`}  onClick={this.select6}>24 !!!! 36</h1>
           <div className={`sample ${this.state.size}`}>
+            <img src={this.state.img} />
           </div>
         </div>
       );
     }
   }
+
+  function mapStatetoProps(state)
+  {
+  	return state;
+  }
+
+  export default connect(mapStatetoProps)(SingleH);

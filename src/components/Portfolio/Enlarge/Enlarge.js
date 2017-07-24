@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import { connect } from "react-redux";
+import {choice} from '../../../ducks/chooseImage';
 import "./Enlarge.css";
 
 const Enlarge=(props) =>
@@ -12,8 +14,8 @@ const Enlarge=(props) =>
               <img className="enlarge" src={props.picture} alt={props.alt}/>
             </span>
             <div className="add">
-              <Link className="nav" to="/type">
-                Add to Cart
+              <Link className="nav" to="/type" onClick={()=>props.choice(props.picture)}>
+                Select
               </Link>
             </div>
           </div>
@@ -22,4 +24,9 @@ const Enlarge=(props) =>
     )
 }
 
-export default Enlarge;
+function mapStatetoProps(state)
+{
+	return state;
+}
+
+export default connect(mapStatetoProps, {choice})(Enlarge);

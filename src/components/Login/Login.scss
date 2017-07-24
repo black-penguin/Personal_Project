@@ -3,30 +3,50 @@
     padding: 15px 0 0 15px;
     #login
     {
-      padding: 10px;
       border: 2px solid white;
-      border-radius: 5px;
-      width: 120px;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 40px;
+      font-size: 20px;
+      padding: 5px;
+      width: 65px;
       a
       {
         text-decoration:  none;
         color: white;
       }
     }
+    #login:hover
+    {
+      border: 4px solid white;
+    }
     #user
     {
-      padding: 10px;
-      border: 2px solid white;
-      border-radius: 5px;
       cursor: pointer;
-      font-size: 25px;
+      font-size: 20px;
       color: white;
-      width: 150px;
-      display: flex;
-      justify-content: space-around;
+      width: 80px;
+      border: 2px solid white;
+      border-radius: 10px;
+      h1
+      {
+        display: flex;
+        justify-content: space-around;
+        padding: 7px;
+      }
     }
+    #user:hover
+    {
+      h1
+      {
+        border: 4px solid white;
+        border-radius: 5px;
+      }
+    }
+}
+
+.login:hover
+{
+  font-weight: bold;
 }
 
 
@@ -36,9 +56,72 @@
   {
     #login
     {
-      padding: 4px;
+      padding: 5px;
       font-size: 20px;
-      width: 60px;
+      width: 65px;
+      h1
+      {
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px)
+{
+  .login
+  {
+    #login
+    {
+      width: 70px;
+      h1
+      {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px)
+{
+  .login
+  {
+    padding: 25px 0 0 25px;
+    #login
+    {
+      font-size: 40px;
+      width: 75px;
+      h1
+      {
+        padding: 5px;
+      }
+    }
+    #user
+    {
+      font-size: 30px;
+      width: 160px;
+    }
+  }
+}
+
+@media (min-width: 2000px)
+{
+  .login
+  {
+    padding: 40px 0 0 40px;
+    #login
+    {
+      font-size: 70px;
+      width: 230px;
+      h1
+      {
+        padding: 15px;
+      }
+    }
+    #user
+    {
+      padding: 20px;
+      font-size: 60px;
+      width: 220px;
     }
   }
 }

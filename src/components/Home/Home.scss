@@ -1,6 +1,6 @@
 .home
 {
-  font-size: 50px;
+  font-size: 30px;
   h1
   {
     text-decoration:  none;
@@ -20,5 +20,29 @@
   .home
   {
     font-size: 40px;
+  }
+}
+
+@media (min-width:1000px)
+{
+  .home
+  {
+    font-size: 50px;
+  }
+}
+
+@media (min-width:1400px)
+{
+  .home
+  {
+    font-size: 70px;
+  }
+}
+
+@media (min-width:2000px)
+{
+  .home
+  {
+    font-size: 120px;
   }
 }
