@@ -32,10 +32,10 @@
     width: 96px;
     height: 144px; }
 
-@media (min-width: 1400px) {
+@media (min-width: 1000px) {
   .single_v .sample {
     float: none;
-    margin-top: -130px;
+    margin-top: -100px;
     margin-left: 60px; }
   .single_v .select1 {
     height: 238px;

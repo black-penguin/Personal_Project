@@ -19,8 +19,7 @@ export default class Cart extends Component
   onToken = (token) =>
   {
     token.card = void 0;
-    console.log('token', token);
-    axios.post('http://localhost:3001/payment', { token, amount: 3600 })
+    axios.post('http://localhost:3001/payment', { token, amount: 7600 })
          .then(response => {
       alert('it works!')
     });
@@ -50,10 +49,9 @@ export default class Cart extends Component
     const purchase=(<StripeCheckout
                       token={this.onToken}
                       stripeKey={stripe.pub_key}
-                      amount={3600}
+                      amount={7600}
                       currency="USD"
-                      shippingAddress
-                      bitcoin>
+                      shippingAddress>
 
                     </StripeCheckout>);
     return (

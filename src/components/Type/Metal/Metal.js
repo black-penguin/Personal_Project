@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import OrientationS from "./OrientationS/OrientationS";
+import SingleV from "./SingleV/SingleV";
+import SingleH from "./SingleH/SingleH";
 import "./Metal.css";
 
 export default class Metal extends Component
@@ -13,7 +14,7 @@ export default class Metal extends Component
       select1:"",
       display1:"none",
       select2:"",
-      display2:"none"
+      display2:"none",
     }
     this.select1=this.select1.bind(this);
     this.select2=this.select2.bind(this);
@@ -25,7 +26,7 @@ export default class Metal extends Component
       select1:"show",
       display1:"block",
       select2:"",
-      display2:"none"
+      display2:"none",
     });
   }
   select2()
@@ -34,17 +35,19 @@ export default class Metal extends Component
       select1:"",
       display1:"none",
       select2:"show",
-      display2:"block"
+      display2:"block",
     });
   }
+
 
     render()
     {
       return (
         <div className="metal" style={{"display":this.props.display}}>
-          <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>Single Image</h1>
-          <h1 className={`item ${this.state.select2}`}  onClick={this.select2}>Collage</h1>
-          <OrientationS display={this.state.display1} />
+          <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>Vertical</h1>
+          <h1 className={`item ${this.state.select2}`}  onClick={this.select2}>Horizontal</h1>
+          <SingleV display={this.state.display1} />
+          <SingleH display={this.state.display2} />
         </div>
       );
     }

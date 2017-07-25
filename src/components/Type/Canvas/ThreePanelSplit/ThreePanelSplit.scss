@@ -1,0 +1,535 @@
+.three_panel_split
+{
+  clear: left;
+  display: none;
+  h1
+  {
+    margin-top: 5px;
+    color: white
+  }
+  .sample
+  {
+    border: 3px solid white;
+    float: left;
+    clear: both;
+    margin-top: 10px;
+    margin-right: 20px;
+  }
+  .select1
+  {
+    cursor: pointer;
+    display: flex;
+    float: left;
+    margin-top: 10px;
+    margin-left: -77px;
+    #one
+    {
+      width: 14px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 28px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 14px;
+      height: 36px;
+      border: 1px solid white;
+    }
+  }
+  .select2
+  {
+    cursor: pointer;
+    display: flex;
+    float: left;
+    margin-top: 10px;
+    margin-left: -77px;
+    #one
+    {
+      width: 28px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 14px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 14px;
+      height: 36px;
+      border: 1px solid white;
+    }
+  }
+  .select3
+  {
+    cursor: pointer;
+    display: flex;
+    float: left;
+    margin-top: 10px;
+    margin-left: -77px;
+    #one
+    {
+      width: 14px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 14px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 28px;
+      height: 36px;
+      border: 1px solid white;
+    }
+  }
+  .select4
+  {
+    cursor: pointer;
+    display: flex;
+    float: left;
+    margin-top: 10px;
+    margin-left: -68px;
+    #one
+    {
+      width: 12px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 24px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 12px;
+      height: 36px;
+      border: 1px solid white;
+    }
+  }
+  .select5
+  {
+    cursor: pointer;
+    display: flex;
+    float: left;
+    margin-top: 10px;
+    margin-left: -68px;
+    #one
+    {
+      width: 24px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 12px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 12px;
+      height: 36px;
+      border: 1px solid white;
+    }
+  }
+  .select6
+  {
+    cursor: pointer;
+    display: flex;
+    float: left;
+    margin-top: 10px;
+    margin-left: -68px;
+    #one
+    {
+      width: 12px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 12px;
+      height: 36px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 24px;
+      height: 36px;
+      border: 1px solid white;
+    }
+  }
+  .select7
+  {
+    cursor: pointer;
+    display: flex;
+    float: left;
+    margin-top: 10px;
+    margin-left: -68px;
+    #one
+    {
+      width: 16px;
+      height: 30px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 16px;
+      height: 30px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 16px;
+      height: 30px;
+      border: 1px solid white;
+    }
+  }
+  .select8
+  {
+    cursor: pointer;
+    float: left;
+    margin-top: 10px;
+    margin-left: -40px;
+    #one
+    {
+      width: 20px;
+      height: 20px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 20px;
+      height: 20px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 20px;
+      height: 20px;
+      border: 1px solid white;
+    }
+  }
+  .select9
+  {
+    cursor: pointer;
+    float: left;
+    display: flex;
+    margin-top: 10px;
+    margin-left: -80px;
+    #one
+    {
+      width: 20px;
+      height: 20px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 20px;
+      height: 20px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 20px;
+      height: 20px;
+      border: 1px solid white;
+    }
+  }
+  .select10
+  {
+    cursor: pointer;
+    float: left;
+    display: flex;
+    margin-top: 10px;
+    margin-left: -56px;
+    #one
+    {
+      width: 12px;
+      height: 27px;
+      border: 1px solid white;
+    }
+    #two
+    {
+      width: 12px;
+      height: 27px;
+      border: 1px solid white;
+    }
+    #three
+    {
+      width: 12px;
+      height: 27px;
+      border: 1px solid white;
+    }
+  }
+  .one
+  {
+    width: 56px;
+    height: 36px;
+  }
+  .two
+  {
+    width: 48px;
+    height: 36px;
+  }
+  .three
+  {
+    width: 48px;
+    height: 30px;
+  }
+  .four
+  {
+    width: 20px;
+    height: 60px;
+  }
+  .five
+  {
+    width: 60px;
+    height: 20px
+  }
+  .six
+  {
+    width: 36px;
+    height: 27px;
+  }
+}
+
+@media (min-width:750px)
+{
+  .three_panel_split
+  {
+    .select1
+    {
+      margin-left: -410px;
+      #one
+      {
+        width: 98px;
+        height: 252px;
+        border: 2px solid white;
+      }
+      #two
+      {
+        width: 196px;
+        height: 252px;
+      }
+      #three
+      {
+        width: 98px;
+        height: 252px;
+      }
+    }
+    .select2
+    {
+      margin-left: -410px;
+      #one
+      {
+        width: 196px;
+        height: 252px;
+      }
+      #two
+      {
+        width: 98px;
+        height: 252px;
+      }
+      #three
+      {
+        width: 98px;
+        height: 252px;
+      }
+    }
+    .select3
+    {
+      margin-left: -410px;
+      #one
+      {
+        width: 98px;
+        height: 252px;
+      }
+      #two
+      {
+        width: 98px;
+        height: 252px;
+      }
+      #three
+      {
+        width: 196px;
+        height: 252px;
+      }
+    }
+    .select4
+    {
+      margin-left: -357px;
+      #one
+      {
+        width: 84px;
+        height: 252px;
+      }
+      #two
+      {
+        width: 168px;
+        height: 252px;
+      }
+      #three
+      {
+        width: 84px;
+        height: 252px;
+      }
+    }
+    .select5
+    {
+      margin-left: -357px;
+      #one
+      {
+        width: 168px;
+        height: 252px;
+      }
+      #two
+      {
+        width: 84px;
+        height: 252px;
+      }
+      #three
+      {
+        width: 84px;
+        height: 252px;
+      }
+    }
+    .select6
+    {
+      margin-left: -357px;
+      #one
+      {
+        width: 84px;
+        height: 252px;
+      }
+      #two
+      {
+        width: 84px;
+        height: 252px;
+      }
+      #three
+      {
+        width: 168px;
+        height: 252px;
+      }
+    }
+    .select7
+    {
+      margin-left: -357px;
+      #one
+      {
+        width: 112px;
+        height: 210px;
+      }
+      #two
+      {
+        width: 112px;
+        height: 210px;
+      }
+      #three
+      {
+        width: 112px;
+        height: 210px;
+      }
+    }
+    .select8
+    {
+      margin-left: -160px;
+      #one
+      {
+        width: 140px;
+        height: 140px;
+      }
+      #two
+      {
+        width: 140px;
+        height: 140px;
+      }
+      #three
+      {
+        width: 140px;
+        height: 140px;
+      }
+    }
+    .select9
+    {
+      margin-left: -440px;
+      #one
+      {
+        width: 140px;
+        height: 140px;
+      }
+      #two
+      {
+        width: 140px;
+        height: 140px;
+      }
+      #three
+      {
+        width: 140px;
+        height: 140px;
+      }
+    }
+    .select10
+    {
+      margin-left: -270px;
+      #one
+      {
+        width: 84px;
+        height: 189px;
+      }
+      #two
+      {
+        width: 84px;
+        height: 189px;
+      }
+      #three
+      {
+        width: 84px;
+        height: 189px;
+      }
+    }
+    .one
+    {
+      width: 392px;
+      height: 252px;
+    }
+    .two
+    {
+      width: 336px;
+      height: 252px;
+    }
+    .three
+    {
+      width: 336px;
+      height: 210px;
+    }
+    .four
+    {
+      width: 140px;
+      height: 420px;
+    }
+    .five
+    {
+      width: 420px;
+      height: 140px
+    }
+    .six
+    {
+      width: 252px;
+      height: 189px;
+    }
+  }
+}

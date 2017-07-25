@@ -31,6 +31,8 @@
   {
     text-decoration: underline;
     font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
   }
   .show
   {
@@ -56,6 +58,7 @@
     height: 62vh;
     margin-right: 20px;
     margin-left: 20px;
+    padding: 20px;
   }
 }
 
@@ -65,8 +68,6 @@
   .type
   {
     height: 66vh;
-    margin-right: 20px;
-    margin-left: 20px;
   }
   @media (min-height: 600px)
   {
@@ -89,9 +90,6 @@
     height:74vh;
     margin-right: 20px;
     margin-left: 20px;
-    padding: 20px;
-    padding-right: 30px;
-    padding-left: 30px;
     .item
     {
       font-size: 30px;

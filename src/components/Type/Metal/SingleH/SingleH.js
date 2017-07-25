@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
-import '../../../../../ducks/chooseImage';
-import Enlarge from "../../../Enlarge/Enlarge";
-import "./SingleV.css";
+import '../../../../ducks/chooseImage';
+import Enlarge from "../../Enlarge/Enlarge";
+import "./SingleH.css";
 
-class SingleV extends Component
+class SingleH extends Component
 {
   constructor(props)
   {
@@ -31,6 +31,7 @@ class SingleV extends Component
     this.select5=this.select5.bind(this);
     this.select6=this.select6.bind(this);
   }
+
   showModal()
   {
     this.setState({
@@ -121,7 +122,7 @@ class SingleV extends Component
     render()
     {
       return (
-        <div className="single_v" style={{"display":this.props.display}}>
+        <div className="single_h" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>11 x 14</h1>
           <h1 className={`item ${this.state.select2}`}  onClick={this.select2}>12 x 12</h1>
           <h1 className={`item ${this.state.select3}`}  onClick={this.select3}>16 x 20</h1>
@@ -139,7 +140,7 @@ class SingleV extends Component
 
   function mapStatetoProps(state)
   {
-    return {img: state.img};
+  	return {img: state.img};
   }
 
-  export default connect(mapStatetoProps)(SingleV);
+  export default connect(mapStatetoProps)(SingleH);
