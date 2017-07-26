@@ -5,8 +5,8 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const cors = require('cors');
 const massive = require('massive');
-// const products_controller = require('./products-controller/products_controller');
 const config = require('./config');
+const controllers = require('./controllers/controller')
 
 const stripe = require('stripe')(config.secret_key);
 const connectionString=config.connectionString;
@@ -41,7 +41,7 @@ massive(connectionString).then(dbInstance => {
     function (accessToken, refreshToken, extraParams, profile, done) {
 
       //logic for passing in new or existing account
-      console.log(profile);
+      console.log("hi " +profile.displayName);
 
       dbInstance.getUser([profile.identities[0].user_id])
         .then((user) => {
@@ -104,63 +104,65 @@ massive(connectionString).then(dbInstance => {
 
 
   //This is the part that will let the loggedin user to log out
-  app.get('/logout', function (req, res) {
+  app.get('/logout', function (req, res)
+  {
     req.logout();
     res.redirect('http://localhost:3000/');
   });
 
-  app.post('/payment', function(req, res, next){
-  //convert amount to pennies
-  const amountArray = req.body.amount.toString().split('');
-  const pennies = [];
-  for (var i = 0; i < amountArray.length; i++)
+  app.post('/payment', function(req, res, next)
   {
-    if(amountArray[i] === ".")
+    //convert amount to pennies
+    const amountArray = req.body.amount.toString().split('');
+    const pennies = [];
+    for (var i = 0; i < amountArray.length; i++)
     {
-      if (typeof amountArray[i + 1] === "string")
+      if(amountArray[i] === ".")
       {
-        pennies.push(amountArray[i + 1]);
+        if (typeof amountArray[i + 1] === "string")
+        {
+          pennies.push(amountArray[i + 1]);
+        }
+        else
+        {
+          pennies.push("0");
+        }
+        if (typeof amountArray[i + 2] === "string")
+        {
+          pennies.push(amountArray[i + 2]);
+        }
+        else
+        {
+          pennies.push("0");
+        }
+      	break;
       }
       else
       {
-        pennies.push("0");
+      	pennies.push(amountArray[i])
       }
-      if (typeof amountArray[i + 2] === "string")
-      {
-        pennies.push(amountArray[i + 2]);
-      }
-      else
-      {
-        pennies.push("0");
-      }
-    	break;
     }
-    else
-    {
-    	pennies.push(amountArray[i])
-    }
-  }
-  const convertedAmt = parseInt(pennies.join(''));
+    const convertedAmt = parseInt(pennies.join(''));
 
-  const charge = stripe.charges.create({
-  amount: convertedAmt, // amount in cents, again
-  currency: 'usd',
-  source: req.body.token.id,
-  description: 'Test charge from react app'
-},
-function(err, charge)
-{
-    if (err)
-      return res.sendStatus(500);
-    return
-      res.sendStatus(200);
-  // if (err && err.type === 'StripeCardError') {
-  //   // The card has been declined
-  // }
-});
-});
+    const charge = stripe.charges.create({
+    amount: convertedAmt, // amount in cents, again
+    currency: 'usd',
+    source: req.body.token.id,
+    description: 'Test charge from react app'
+  },
+  function(err, charge)
+  {
+      if (err)
+        return res.sendStatus(500);
+      return
+        res.sendStatus(200);
+    // if (err && err.type === 'StripeCardError') {
+    //   // The card has been declined
+    // }
+  });
+  });
 //endpoints
-
+app.get("/api/images", controllers.getAll)
 
 });
 

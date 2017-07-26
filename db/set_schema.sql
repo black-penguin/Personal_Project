@@ -1,5 +1,55 @@
-drop table if exists users;
+drop table if exists users, pictures;
 
-create table users(id serial primary key, auth0id text, name text, email text);
+create table users(ID serial primary key, auth0ID text, name text, email text);
 
-insert into public.users(auth0ID, name, email)values (23423433, 'test', 'email@domain.com');
+insert into users(auth0ID, name, email) values (23423433, 'test', 'email@domain.com');
+
+create table pictures(ID serial primary key, url text, price int);
+
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide38.jpg', 30);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide32.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide33.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide34.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide35.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide36.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide37.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide39.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide40.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide41.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide28.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide21.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide29.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide30.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide31.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide42.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide2.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide43.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide44.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide45.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide46.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide1.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide3.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide4.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide5.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide6.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide7.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide8.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide9.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide10.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide15.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide11.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide12.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide13.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide14.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide16.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide17.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide18.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide19.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide20.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide22.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide23.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide24.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide25.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide26.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide27.jpg', 25);
+insert into pictures(url, price) values ('https://amidstthemountains.com/jpg/Slide47.jpg', 25);

@@ -1,8 +1,8 @@
 import React, {Component} from "react";
+import axios from "axios";
 import Enlarge from "./Enlarge/Enlarge";
 import Selector from "./Selector/Selector";
 import "./Portfolio.css";
-import arr from "./Pictures";
 
 
 export default class Portfolio extends Component
@@ -12,7 +12,10 @@ export default class Portfolio extends Component
   constructor()
   {
     super();
-    this.state={rose:'',water_fall:'', IMG_6835:''};
+    this.state=
+    {
+      img:[]
+    };
     this.view=[];
     this.showModal=this.showModal.bind(this);
     this.closeModal=this.closeModal.bind(this);
@@ -38,14 +41,26 @@ export default class Portfolio extends Component
     });
   }
 
+  componentDidMount()
+  {
+    axios.get('/api/images')
+    .then( res =>
+      {
+        this.setState({
+          img: res.data
+        })
+      })
+  }
+
   render()
   {
-    const pic = arr.map((img, i) =>
+    console.log("bug", this.state.img);
+    const pic = this.state.img.map((elem, i) =>
     {
       return(
-        <div key={arr.id}>
-          <Selector alt={img}  picture={img} open={this.showModal} />
-          <Enlarge alt={img} picture={img} display={this.state[img]} close={this.closeModal}/>
+        <div>
+          <Selector alt={elem.url}  picture={elem.url} open={this.showModal} />
+          <Enlarge alt={elem.url} picture={elem.url} display={elem.url} close={this.closeModal}/>
         </div>
       );
     });
