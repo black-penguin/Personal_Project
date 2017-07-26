@@ -10,7 +10,6 @@ export default class Profile extends Component
 
     this.state =
     {
-      display:'none',
       profile: ''
     }
   }
@@ -24,7 +23,6 @@ export default class Profile extends Component
         if(res.data.displayName)
         {
           this.setState({
-            display:"block",
             profile: res.data.displayName,
             email: res.data.emails[0]["value"]
           })
