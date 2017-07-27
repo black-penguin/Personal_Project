@@ -133,6 +133,7 @@ class SingleH extends Component
             <img className={`sample ${this.state.size}`} src={this.state.img} alt={this.state.img} onClick={this.showModal} />
             <Enlarge display={this.state.display} picture={this.state.img} close={this.closeModal} />
           </div>
+          <h1>add to cart</h1>
         </div>
       );
     }

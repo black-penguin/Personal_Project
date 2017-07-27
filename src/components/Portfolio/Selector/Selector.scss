@@ -13,12 +13,38 @@
     color: Black;
     border: none;
     cursor: pointer;
+    position: relative;
+    .nav
+    {
+      color: white;
+      text-decoration: none;
+      position: relative;
+      bottom: 65px;
+      left: 295px;
+      padding: 5px;
+      opacity: 0;
+      border: 2px solid white;
+      border-radius: 10px;
+      font-size: 25px;
+    }
+}
+.enl:hover
+{
+  .nav
+  {
+    opacity: 1;
+  }
+  .nav:hover
+  {
+    border: 4px solid white;
+    font-weight: bold;
+  }
+  img
+  {
+    opacity: 0.6;
+  }
 }
 
-.tile:hover
-{
-    opacity: 0.6;
-}
 
 @media (min-width: 750px)
 {

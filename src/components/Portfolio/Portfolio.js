@@ -4,6 +4,7 @@ import Enlarge from "./Enlarge/Enlarge";
 import Selector from "./Selector/Selector";
 import "./Portfolio.css";
 
+import arr from "./Pictures";
 
 export default class Portfolio extends Component
 {
@@ -47,29 +48,35 @@ export default class Portfolio extends Component
     .then( res =>
       {
         this.setState({
-          img: res.data
+          img: res.data,
         })
       })
   }
 
   render()
   {
-    console.log("bug", this.state.img);
-    const pic = this.state.img.map((elem, i) =>
+    const pic = this.state.img.map((img, i) =>
     {
       return(
-        <div>
-          <Selector alt={elem.url}  picture={elem.url} open={this.showModal} />
-          <Enlarge alt={elem.url} picture={elem.url} display={elem.url} close={this.closeModal}/>
+        <div key={this.state.img.i}>
+          <Selector alt={img.alt}  picture={img.url} open={this.showModal} />
         </div>
       );
     });
-
+    const picEn = arr.map((img, i) =>
+    {
+      return(
+        <div key={arr.i}>
+        <Enlarge alt={img} picture={img} display={this.state[img]} close={this.closeModal}/>
+        </div>
+      );
+    });
     return (
       <div>
         <h1 id="portfolio">Portfolio</h1>
         <div className="imgs">
           {pic}
+          {picEn}
         </div>
       </div>
     );

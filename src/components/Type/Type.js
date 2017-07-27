@@ -19,7 +19,6 @@ export default class Type extends Component
     }
     this.select1=this.select1.bind(this);
     this.select2=this.select2.bind(this);
-    this.reset=this.reset.bind(this);
   }
 
   select1()
@@ -40,15 +39,6 @@ export default class Type extends Component
       display2:"block"
     });
   }
-  reset()
-  {
-    this.setState({
-      select1:"",
-      display1:"none",
-      select2:"",
-      display2:"none"
-    });
-  }
 
   render()
   {
@@ -59,7 +49,7 @@ export default class Type extends Component
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>Canvas</h1>
           <h1 className={`item ${this.state.select2}`}  onClick={this.select2}>Metal</h1>
           <Link className="nav" to="/portfolio">
-            <h1 id="reset" className={`item`}  onClick={this.reset}>Reset</h1>
+            <h1 id="reset" className="item">Reset</h1>
           </Link>
           <Canvas display={this.state.display1} />
           <Metal display={this.state.display2} />

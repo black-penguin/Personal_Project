@@ -13,10 +13,13 @@ const connectionString=config.connectionString;
 
 const app = express();
 
+//app.use(express.statis(_dirname+'/../build'));
+
 app.use(bodyParser.json());
 app.use(cors());
 
-massive(connectionString).then(dbInstance => {
+massive(connectionString).then(dbInstance =>
+{
   app.set('db', dbInstance);
 
   dbInstance.set_schema()
@@ -144,26 +147,27 @@ massive(connectionString).then(dbInstance => {
     }
     const convertedAmt = parseInt(pennies.join(''));
 
-    const charge = stripe.charges.create({
+    const charge = stripe.charges.create(
+    {
     amount: convertedAmt, // amount in cents, again
     currency: 'usd',
     source: req.body.token.id,
     description: 'Test charge from react app'
-  },
-  function(err, charge)
-  {
-      if (err)
-        return res.sendStatus(500);
-      return
-        res.sendStatus(200);
-    // if (err && err.type === 'StripeCardError') {
-    //   // The card has been declined
-    // }
+    },
+    function(err, charge)
+    {
+        if (err)
+          return res.sendStatus(500);
+        return
+          res.sendStatus(200);
+      // if (err && err.type === 'StripeCardError') {
+      //   // The card has been declined
+      // }
+    });
   });
-  });
-//endpoints
-app.get("/api/images", controllers.getAll)
-
+  //endpoints
+  app.get("/api/images", controllers.getAll);
+  app.get("/api/users", controllers.getUsers);
 });
 
 app.listen(config.port, console.log("it works!"));

@@ -1,11 +1,5 @@
 module.exports=
 {
-  getOne:(req, res, next)=>
-  {
-    const dbInstance = req.app.get('db');
-
-    dbInstance.get_user(req.params)
-  },
   getAll:(req, res)=>
   {
     const dbInstance = req.app.get('db');
@@ -17,5 +11,17 @@ module.exports=
       })
       .catch((err) =>
         res.status(500).send(err));
-  }
+  },
+  getUsers:(req, res)=>
+  {
+    const dbInstance=req.app.get('db');
+
+    dbInstance.user()
+      .then((users)=>
+      {
+        res.status(200).send(users)
+      })
+      .catch((err)=>
+        res.status(404).send(err));
+  },
 }
