@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import '../../../../ducks/chooseImage';
 import Enlarge from "../../Enlarge/Enlarge";
 import "./ThreePanelSplit.css";
@@ -12,6 +13,7 @@ class ThreePanelSplit extends Component
 
     this.state=
     {
+      picture:[],
       display:"none",
       enl:"none",
       select1:"",
@@ -227,6 +229,18 @@ class ThreePanelSplit extends Component
     });
   }
 
+  componentDidMount()
+  {
+    axios.get(`/api/image/${this.state.img}`)
+    .then( res =>
+      {
+        this.setState({
+          picture: res.data[0]
+        })
+      })
+    .catch((err)=>null)
+  }
+
     render()
     {
       return (
@@ -242,7 +256,7 @@ class ThreePanelSplit extends Component
           <h1 className={`item ${this.state.select9}`}  onClick={this.select9}>60 x 20, 3-20x20</h1>
           <h1 className={`item ${this.state.select10}`}  onClick={this.select10}>36 x 27 3-12x27</h1>
           <div>
-            <img className={`sample ${this.state.size}`} src={this.state.img} alt={this.state.img}  />
+            <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.picture.alt} onClick={this.showModal} />
             <div className={this.state.split} onClick={this.showModal}>
               <div id="one"></div>
               <div id="two"></div>

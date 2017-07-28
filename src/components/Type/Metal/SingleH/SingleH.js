@@ -135,7 +135,6 @@ class SingleH extends Component
 
     render()
     {
-      console.log(this.state.picture.url);
       return (
         <div className="single_h" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>11 x 14</h1>
@@ -145,7 +144,7 @@ class SingleH extends Component
           <h1 className={`item ${this.state.select5}`}  onClick={this.select5}>20 x 30</h1>
           <h1 className={`item ${this.state.select6}`}  onClick={this.select6}>24 x 36</h1>
           <div>
-            <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.img} onClick={this.showModal} />
+            <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.picture.alt} onClick={this.showModal} />
             <Enlarge display={this.state.display} picture={this.state.img} close={this.closeModal} />
           </div>
           <h1>add to cart</h1>

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import '../../../../ducks/chooseImage';
 import Enlarge from "../../Enlarge/Enlarge";
 import "./Single.css";
@@ -12,6 +13,7 @@ class Single extends Component
 
     this.state=
     {
+      picture:[],
       display:"none",
       enl:"none",
       select1:"show",
@@ -189,6 +191,18 @@ class Single extends Component
     });
   }
 
+  componentDidMount()
+  {
+    axios.get(`/api/image/${this.state.img}`)
+    .then( res =>
+      {
+        this.setState({
+          picture: res.data[0]
+        })
+      })
+    .catch((err)=>null)
+  }
+
     render()
     {
       return (
@@ -203,7 +217,7 @@ class Single extends Component
           <h1 className={`item ${this.state.select8}`}  onClick={this.select8}>30 x 40</h1>
           <h1 className={`item ${this.state.select9}`}  onClick={this.select9}>40 x 60</h1>
           <div>
-            <img className={`sample ${this.state.size}`} src={this.state.img} alt={this.state.img} onClick={this.showModal} />
+          <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.picture.alt} onClick={this.showModal} />
             <Enlarge display={this.state.enl} picture={this.state.img} close={this.closeModal} />
           </div>
         </div>

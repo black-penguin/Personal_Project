@@ -22,6 +22,7 @@ class SingleV extends Component
       select5:"",
       select6:"",
       size:"select1",
+      img:this.props.img
     }
     this.showModal=this.showModal.bind(this);
     this.closeModal=this.closeModal.bind(this);
@@ -32,6 +33,7 @@ class SingleV extends Component
     this.select5=this.select5.bind(this);
     this.select6=this.select6.bind(this);
   }
+
   showModal()
   {
     this.setState({
@@ -121,7 +123,6 @@ class SingleV extends Component
 
   componentDidMount()
   {
-    console.log(this.state.img);
     axios.get(`/api/image/${this.state.img}`)
     .then( res =>
       {
@@ -143,9 +144,10 @@ class SingleV extends Component
           <h1 className={`item ${this.state.select5}`}  onClick={this.select5}>20 x 30</h1>
           <h1 className={`item ${this.state.select6}`}  onClick={this.select6}>24 x 36</h1>
           <div>
-          <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.img} onClick={this.showModal} />
+            <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.picture.alt} onClick={this.showModal} />
             <Enlarge display={this.state.display} picture={this.state.img} close={this.closeModal} />
           </div>
+          <h1>add to cart</h1>
         </div>
       );
     }
@@ -153,7 +155,7 @@ class SingleV extends Component
 
   function mapStatetoProps(state)
   {
-    return {img: state.img};
+  	return {img: state.img};
   }
 
   export default connect(mapStatetoProps)(SingleV);
