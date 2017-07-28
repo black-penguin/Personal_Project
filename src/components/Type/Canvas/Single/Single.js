@@ -14,9 +14,11 @@ class Single extends Component
     this.state=
     {
       picture:[],
+      sizeInfo:[],
+      user: [],
       display:"none",
       enl:"none",
-      select1:"show",
+      select1:"",
       select2:"",
       select3:"",
       select4:"",
@@ -25,7 +27,7 @@ class Single extends Component
       select7:"",
       select8:"",
       select9:"",
-      size:"select1",
+      size:"",
       img:this.props.img
     }
     this.showModal=this.showModal.bind(this);
@@ -39,6 +41,8 @@ class Single extends Component
     this.select7=this.select7.bind(this);
     this.select8=this.select8.bind(this);
     this.select9=this.select9.bind(this);
+    this.getPrice=this.getPrice.bind(this);
+    this.addToCart=this.addToCart.bind(this);
   }
 
   showModal()
@@ -69,6 +73,7 @@ class Single extends Component
       select9:"",
       size:"select1"
     });
+    this.getPrice(1);
   }
   select2()
   {
@@ -84,6 +89,7 @@ class Single extends Component
       select9:"",
       size:"select2"
     });
+    this.getPrice(2);
   }
   select3()
   {
@@ -99,6 +105,7 @@ class Single extends Component
       select9:"",
       size:"select3"
     });
+    this.getPrice(3);
   }
   select4()
   {
@@ -114,6 +121,7 @@ class Single extends Component
       select9:"",
       size:"select4"
     });
+    this.getPrice(4);
   }
   select5()
   {
@@ -129,6 +137,7 @@ class Single extends Component
       select9:"",
       size:"select5"
     });
+    this.getPrice(5);
   }
   select6()
   {
@@ -144,6 +153,7 @@ class Single extends Component
       select9:"",
       size:"select6"
     });
+    this.getPrice(6);
   }
   select7()
   {
@@ -159,6 +169,7 @@ class Single extends Component
       select9:"",
       size:"select7"
     });
+    this.getPrice(7);
   }
   select8()
   {
@@ -174,6 +185,7 @@ class Single extends Component
       select9:"",
       size:"select8"
     });
+    this.getPrice(8);
   }
   select9()
   {
@@ -189,6 +201,34 @@ class Single extends Component
       select9:"show",
       size:"select9"
     });
+    this.getPrice(9);
+  }
+
+  getPrice(choice)
+  {
+    axios.get(`/api/size/${choice}`)
+    .then( res =>
+      {
+        this.setState({
+          sizeInfo: res.data[0]
+        })
+      })
+    .catch((err)=>null)
+    axios.get('/me')
+    .then( res =>
+      {
+        if(res.data.displayName)
+        {
+          this.setState({
+            user: res.data.identities[0].user_id
+          })
+        }
+      })
+  }
+
+  addToCart (userID, pictureID, sizeID)
+  {
+    axios.post(`/api/addToCart/${userID}/${pictureID}/${sizeID}`)
   }
 
   componentDidMount()
@@ -201,10 +241,17 @@ class Single extends Component
         })
       })
     .catch((err)=>null)
+    this.select1();
   }
 
     render()
     {
+      const add=(<h1 id="add" onClick={()=>{this.addToCart(this.state.user, this.state.picture.id, this.state.sizeInfo.id)}}>Add to Cart</h1>);
+      const login_btn=(<div id="add">
+                        <a href="http://localhost:3001/auth">
+                          <h1>Login</h1>
+                        </a>
+                      </div>);
       return (
         <div className="single" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>12 x 16</h1>
@@ -219,6 +266,14 @@ class Single extends Component
           <div>
           <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.picture.alt} onClick={this.showModal} />
             <Enlarge display={this.state.enl} picture={this.state.img} close={this.closeModal} />
+          </div>
+          <div className="total">
+            <h1>${this.state.picture.price}.00</h1>
+            <h1>+ ${this.state.sizeInfo.price}.00</h1>
+            <h1 id = "ship">+ Shipping </h1>
+            <h1>${0+this.state.sizeInfo.price+this.state.picture.price+10}.00</h1>
+            <br />
+            {this.state.user.length<1?login_btn:add}
           </div>
         </div>
       );

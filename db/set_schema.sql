@@ -1,4 +1,4 @@
-drop table if exists users, pictures, sizeChart;
+drop table if exists users, pictures, sizeChart, shoppingCart;
 
 create table users(ID serial primary key, auth0ID text, name text, email text);
 
@@ -53,4 +53,16 @@ insert into pictures(url, alt, price) values ('https://amidstthemountains.com/jp
 insert into pictures(url, alt, price) values ('https://amidstthemountains.com/jpg/Slide26.jpg', 'butterfly-2', 25);
 insert into pictures(url, alt, price) values ('https://amidstthemountains.com/jpg/Slide27.jpg', 'butterfly-3', 25);
 
--- create table sizeChart(ID serial primary key, size text, price int);
+create table sizeChart(ID serial primary key, type text, size text, price int);
+
+insert into sizeChart(type, size, price) values ('CS', '12 x 16', 30);
+insert into sizeChart(type, size, price) values ('CS', '14 x 14', 30);
+insert into sizeChart(type, size, price) values ('CS', '16 x 20', 40);
+insert into sizeChart(type, size, price) values ('CS', '18 x 24', 50);
+insert into sizeChart(type, size, price) values ('CS', '20 x 30', 60);
+insert into sizeChart(type, size, price) values ('CS', '24 x 32', 65);
+insert into sizeChart(type, size, price) values ('CS', '16 x 48', 65);
+insert into sizeChart(type, size, price) values ('CS', '30 x 40', 145);
+insert into sizeChart(type, size, price) values ('CS', '40 x 60', 285);
+
+create table shoppingCart(id serial primary key, auth0ID text, picID int, SizeID int);

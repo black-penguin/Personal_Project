@@ -168,7 +168,11 @@ massive(connectionString).then(dbInstance =>
   //endpoints
   app.get("/api/images", controllers.getAll);
   app.get("/api/image/:id", controllers.getOne);
+  app.get("/api/size/:id", controllers.getSize);
   app.get("/api/users", controllers.getUsers);
+  app.get("/api/cart", controllers.getCart);
+
+  app.post("/api/addToCart/:userID/:pictureID/:SizeID", controllers.addToCart);
 });
 
 app.listen(config.port, console.log("it works!"));
