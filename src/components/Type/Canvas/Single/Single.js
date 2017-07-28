@@ -191,7 +191,6 @@ class Single extends Component
 
     render()
     {
-      console.log("single", this.props.display);
       return (
         <div className="single" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>12 x 16</h1>

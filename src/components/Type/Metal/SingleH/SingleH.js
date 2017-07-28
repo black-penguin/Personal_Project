@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import '../../../../ducks/chooseImage';
 import Enlarge from "../../Enlarge/Enlarge";
 import "./SingleH.css";
@@ -12,6 +13,7 @@ class SingleH extends Component
 
     this.state=
     {
+      picture:[],
       display:"none",
       select1:"show",
       select2:"",
@@ -119,8 +121,21 @@ class SingleH extends Component
     });
   }
 
+  componentDidMount()
+  {
+    axios.get(`/api/image/${this.state.img}`)
+    .then( res =>
+      {
+        this.setState({
+          picture: res.data[0]
+        })
+      })
+    .catch((err)=>null)
+  }
+
     render()
     {
+      console.log(this.state.picture.url);
       return (
         <div className="single_h" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>11 x 14</h1>
@@ -130,7 +145,7 @@ class SingleH extends Component
           <h1 className={`item ${this.state.select5}`}  onClick={this.select5}>20 x 30</h1>
           <h1 className={`item ${this.state.select6}`}  onClick={this.select6}>24 x 36</h1>
           <div>
-            <img className={`sample ${this.state.size}`} src={this.state.img} alt={this.state.img} onClick={this.showModal} />
+            <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.img} onClick={this.showModal} />
             <Enlarge display={this.state.display} picture={this.state.img} close={this.closeModal} />
           </div>
           <h1>add to cart</h1>

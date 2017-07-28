@@ -59,7 +59,7 @@ export default class Portfolio extends Component
     {
       return(
         <div key={this.state.img.i}>
-          <Selector alt={img.alt}  picture={img.url} open={this.showModal} />
+          <Selector alt={img.alt} id={img.id}  picture={img.url} open={this.showModal} />
         </div>
       );
     });

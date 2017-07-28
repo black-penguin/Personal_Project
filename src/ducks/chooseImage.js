@@ -16,7 +16,6 @@ export function choice(img)
 function reducer(state=initialState, action)
 {
   state=Object.assign(state, {lastAction: action})
-  console.log(action);
   switch (action.type) {
     case CHOICE:
       return Object.assign({}, state,

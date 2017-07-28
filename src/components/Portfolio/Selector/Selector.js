@@ -9,7 +9,7 @@ const Selector=(props) =>
     return (
       <div className="enl tile">
         <img className="tile" src={props.picture} alt={props.alt} onClick={() => props.open(props.picture)}/>
-        <Link className="nav" to="/type" onClick={()=>props.choice(props.picture)}>
+        <Link className="nav" to="/type" onClick={()=>props.choice(props.id)}>
           Next
         </Link>
       </div>

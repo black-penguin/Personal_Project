@@ -167,6 +167,7 @@ massive(connectionString).then(dbInstance =>
   });
   //endpoints
   app.get("/api/images", controllers.getAll);
+  app.get("/api/image/:id", controllers.getOne);
   app.get("/api/users", controllers.getUsers);
 });
 
