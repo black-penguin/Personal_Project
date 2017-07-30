@@ -170,7 +170,8 @@ massive(connectionString).then(dbInstance =>
   app.get("/api/image/:id", controllers.getOne);
   app.get("/api/size/:id", controllers.getSize);
   app.get("/api/users", controllers.getUsers);
-  app.get("/api/cart", controllers.getCart);
+  app.get("/api/cart/:id", controllers.getCart);
+  app.get("/api/cart/sum/:id", controllers.totalCart);
 
   app.post("/api/addToCart/:userID/:pictureID/:SizeID", controllers.addToCart);
 });

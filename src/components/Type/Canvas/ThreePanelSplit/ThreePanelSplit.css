@@ -4,6 +4,17 @@
   .three_panel_split h1 {
     margin-top: 5px;
     color: white; }
+  .three_panel_split .total {
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 12px;
+    float: right; }
+    .three_panel_split .total #ship {
+      text-decoration: underline; }
+    .three_panel_split .total #add:hover {
+      text-decoration: underline;
+      font-weight: bolder;
+      cursor: pointer; }
   .three_panel_split .sample {
     border: 3px solid white;
     float: left;

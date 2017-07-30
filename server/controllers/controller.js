@@ -41,8 +41,7 @@ module.exports=
   getCart:(req, res)=>
   {
     const dbInstance=req.app.get('db');
-
-    dbInstance.getCart()
+    dbInstance.getCart(req.params.id)
     .then((cart)=>
     {
       res.status(200).send(cart)
@@ -58,6 +57,17 @@ module.exports=
     .then((users)=>
     {
       res.status(200).send("it worked")
+    })
+    .catch((err)=>
+      res.status(404).send(err));
+  },
+  totalCart:(req, res)=>
+  {
+    const dbInstance=req.app.get('db');
+    dbInstance.totalCart(req.params.id)
+    .then((total)=>
+    {
+      res.status(200).send(total)
     })
     .catch((err)=>
       res.status(404).send(err));

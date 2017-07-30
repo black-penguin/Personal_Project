@@ -14,10 +14,12 @@ class ThreePanelSplit extends Component
     this.state=
     {
       picture:[],
+      sizeInfo:[],
+      user: [],
       display:"none",
       enl:"none",
       select1:"",
-      select2:"show",
+      select2:"",
       select3:"",
       select4:"",
       select5:"",
@@ -26,8 +28,8 @@ class ThreePanelSplit extends Component
       select8:"",
       select9:"",
       select10:"",
-      size:"one",
-      split:"select2",
+      size:"",
+      split:"",
       img:this.props.img
     }
     this.showModal=this.showModal.bind(this);
@@ -42,6 +44,8 @@ class ThreePanelSplit extends Component
     this.select8=this.select8.bind(this);
     this.select9=this.select9.bind(this);
     this.select10=this.select10.bind(this);
+    this.getPrice=this.getPrice.bind(this);
+    this.addToCart=this.addToCart.bind(this);
   }
 
   showModal()
@@ -74,6 +78,7 @@ class ThreePanelSplit extends Component
       size:"one",
       split:"select1"
     });
+    this.getPrice(10);
   }
   select2()
   {
@@ -91,6 +96,7 @@ class ThreePanelSplit extends Component
       size:"one",
       split:"select2"
     });
+    this.getPrice(11);
   }
   select3()
   {
@@ -108,6 +114,7 @@ class ThreePanelSplit extends Component
       size:"one",
       split:"select3"
     });
+    this.getPrice(12);
   }
   select4()
   {
@@ -125,6 +132,7 @@ class ThreePanelSplit extends Component
       size:"two",
       split:"select4"
     });
+    this.getPrice(13);
   }
   select5()
   {
@@ -142,6 +150,7 @@ class ThreePanelSplit extends Component
       size:"two",
       split:"select5"
     });
+    this.getPrice(14);
   }
   select6()
   {
@@ -159,6 +168,7 @@ class ThreePanelSplit extends Component
       size:"two",
       split:"select6"
     });
+    this.getPrice(15);
   }
   select7()
   {
@@ -176,6 +186,7 @@ class ThreePanelSplit extends Component
       size:"three",
       split:"select7"
     });
+    this.getPrice(16);
   }
   select8()
   {
@@ -193,6 +204,7 @@ class ThreePanelSplit extends Component
       size:"four",
       split:"select8"
     });
+    this.getPrice(17);
   }
   select9()
   {
@@ -210,6 +222,7 @@ class ThreePanelSplit extends Component
       size:"five",
       split:"select9"
     });
+    this.getPrice(18);
   }
   select10()
   {
@@ -227,6 +240,34 @@ class ThreePanelSplit extends Component
       size:"six",
       split:"select10"
     });
+    this.getPrice(19);
+  }
+
+  getPrice(choice)
+  {
+    axios.get(`/api/size/${choice}`)
+    .then( res =>
+      {
+        this.setState({
+          sizeInfo: res.data[0]
+        })
+      })
+    .catch((err)=>null)
+    axios.get('/me')
+    .then( res =>
+      {
+        if(res.data.displayName)
+        {
+          this.setState({
+            user: res.data.identities[0].user_id
+          })
+        }
+      })
+  }
+
+  addToCart (userID, pictureID, sizeID)
+  {
+    axios.post(`/api/addToCart/${userID}/${pictureID}/${sizeID}`)
   }
 
   componentDidMount()
@@ -239,10 +280,17 @@ class ThreePanelSplit extends Component
         })
       })
     .catch((err)=>null)
+    this.select1();
   }
 
     render()
     {
+      const add=(<h1 id="add" onClick={()=>{this.addToCart(this.state.user, this.state.picture.id, this.state.sizeInfo.id)}}>Add to Cart</h1>);
+      const login_btn=(<div id="add">
+                        <a href="http://localhost:3001/auth">
+                          <h1>Login</h1>
+                        </a>
+                      </div>);
       return (
         <div className="three_panel_split" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select2}`}  onClick={this.select2}>56 x 36, 28x36, 14x36, 14x36</h1>
@@ -264,6 +312,14 @@ class ThreePanelSplit extends Component
             </div>
           </div>
           <Enlarge display={this.state.enl} picture={this.state.img} close={this.closeModal} />
+          <div className="total">
+            <h1>${this.state.picture.picprice}.00</h1>
+            <h1>+ ${this.state.sizeInfo.price}.00</h1>
+            <h1 id = "ship">+ Shipping </h1>
+            <h1>${0+this.state.sizeInfo.price+this.state.picture.picprice+10}.00</h1>
+            <br />
+            {this.state.user.length<1?login_btn:add}
+          </div>
         </div>
       );
     }

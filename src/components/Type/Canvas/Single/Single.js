@@ -268,10 +268,10 @@ class Single extends Component
             <Enlarge display={this.state.enl} picture={this.state.img} close={this.closeModal} />
           </div>
           <div className="total">
-            <h1>${this.state.picture.price}.00</h1>
+            <h1>${this.state.picture.picprice}.00</h1>
             <h1>+ ${this.state.sizeInfo.price}.00</h1>
             <h1 id = "ship">+ Shipping </h1>
-            <h1>${0+this.state.sizeInfo.price+this.state.picture.price+10}.00</h1>
+            <h1>${0+this.state.sizeInfo.price+this.state.picture.picprice+10}.00</h1>
             <br />
             {this.state.user.length<1?login_btn:add}
           </div>
