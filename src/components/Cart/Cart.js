@@ -1,10 +1,12 @@
 import React, {Component} from "react";
+import { connect } from "react-redux";
 import StripeCheckout from 'react-stripe-checkout';
 import stripe from './stripeKey';
 import axios from 'axios';
+import {decrement} from '../../ducks/chooseImage';
 import "./Cart.css";
 
-export default class Cart extends Component
+class Cart extends Component
 {
   constructor(props)
   {
@@ -16,6 +18,7 @@ export default class Cart extends Component
       userID: [],
       cart:[]
     }
+    this.removeCart=this.removeCart.bind(this);
   }
 
   onToken = (token) =>
@@ -26,6 +29,30 @@ export default class Cart extends Component
          .then(response => {
       alert('it works!')
     });
+  }
+
+  removeCart(id)
+  {
+    axios.delete(`/api/cart/rm/${id}`)
+    .then( res =>
+      {
+        this.state.cart.splice(this.state.cart.length-1, 1);
+      });
+      axios.get(`/api/cart/${this.state.userID}`)
+      .then( res =>
+        {
+          this.setState({
+            cart: res.data
+          })
+        });
+      axios.get(`/api/cart/sum/${this.state.userID}`)
+        .then(res=>
+        {
+          this.setState({
+            total:res.data[0].sum
+          })
+        })
+        this.props.decrement(1);
   }
 
   componentDidMount()
@@ -71,6 +98,7 @@ export default class Cart extends Component
                       amount={this.state.total*100}
                       email={this.state.email}
                       shippingAddress>
+                      Checkout
                     </StripeCheckout>);
     const shoppingCart= this.state.cart.map((item, i) =>
     {
@@ -81,11 +109,11 @@ export default class Cart extends Component
           <h1>{item.type}</h1>
           <h1>{item.size}</h1>
           <h1>${item.price+item.picprice}</h1>
-          <h1>X</h1>
+          <h1 className="rm" onClick={()=>{this.removeCart(item.scid)}}>X</h1>
         </div>
       );
     });
-    const shoppingTotal=(<h1>${this.state.total}</h1>)
+    const shoppingTotal=(<h1 className="total">${this.state.total}</h1>)
     return (
       <div>
         <h1 id="cart">Shopping Cart</h1>
@@ -102,3 +130,10 @@ export default class Cart extends Component
     );
   }
 }
+
+function mapStatetoProps(state)
+{
+  return {counter: state.counter};
+}
+
+export default connect(mapStatetoProps, {decrement})(Cart);

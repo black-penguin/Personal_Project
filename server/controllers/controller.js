@@ -61,6 +61,13 @@ module.exports=
     .catch((err)=>
       res.status(404).send(err));
   },
+  rmCart:(req, res)=>
+  {
+    const dbInstance = req.app.get('db');
+    dbInstance.rmCart(req.params.id)
+      .then( (cart) => res.status(200).send(cart) )
+      .catch( () => res.status(500).send() );
+  },
   totalCart:(req, res)=>
   {
     const dbInstance=req.app.get('db');

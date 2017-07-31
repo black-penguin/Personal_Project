@@ -267,7 +267,7 @@ class ThreePanelSplit extends Component
 
   addToCart (userID, pictureID, sizeID)
   {
-    axios.post(`/api/addToCart/${userID}/${pictureID}/${sizeID}`)
+    axios.post(`/api/cart/add/${userID}/${pictureID}/${sizeID}`)
   }
 
   componentDidMount()

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import '../../../../ducks/chooseImage';
+import {cartItems} from '../../../../ducks/chooseImage';
 import Enlarge from "../../Enlarge/Enlarge";
 import "./Single.css";
 
@@ -228,7 +228,8 @@ class Single extends Component
 
   addToCart (userID, pictureID, sizeID)
   {
-    axios.post(`/api/addToCart/${userID}/${pictureID}/${sizeID}`)
+    axios.post(`/api/cart/add/${userID}/${pictureID}/${sizeID}`)
+      .then(()=>this.props.cartItems(userID));
   }
 
   componentDidMount()
@@ -270,8 +271,7 @@ class Single extends Component
           <div className="total">
             <h1>${this.state.picture.picprice}.00</h1>
             <h1>+ ${this.state.sizeInfo.price}.00</h1>
-            <h1 id = "ship">+ Shipping </h1>
-            <h1>${0+this.state.sizeInfo.price+this.state.picture.picprice+10}.00</h1>
+            <h1>${0+this.state.sizeInfo.price+this.state.picture.picprice}.00</h1>
             <br />
             {this.state.user.length<1?login_btn:add}
           </div>
@@ -285,4 +285,4 @@ class Single extends Component
   	return {img: state.img};
   }
 
-  export default connect(mapStatetoProps)(Single);
+  export default connect(mapStatetoProps, {cartItems})(Single);

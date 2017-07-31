@@ -9,9 +9,6 @@ const User=(props) =>
         <Link className="nav" to="/profile">
           <h4>My Profile</h4>
         </Link>
-        <Link className="nav" to="/cart">
-          <h4>Shopping cart</h4>
-        </Link>
         <a className="nav" href="http://localhost:3001/logout">
           <h4>Logout</h4>
         </a>

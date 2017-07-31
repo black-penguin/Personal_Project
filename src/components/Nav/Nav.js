@@ -1,18 +1,20 @@
 import React, {Component} from "react";
+import { connect } from "react-redux";
+import '../../ducks/chooseImage';
 import Ham from "./Ham/Ham";
 import HamMenu from "./HamMenu/HamMenu";
 
 import "./Nav.css"
 
-export default class Nav extends Component
+class Nav extends Component
 {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
 
     this.state=
     {
-      display:"none"
+      display:"none",
     }
     this.showNav=this.showNav.bind(this);
   }
@@ -27,9 +29,12 @@ export default class Nav extends Component
 
   render()
   {
+    const totalItems=(<span id="cartItems">{this.props.cartItems}</span>);
+    console.log("cart", this.props.cartItems);
     return (
       <div>
         <div>
+          {this.props.cartItems>=1?totalItems:null}
           <Ham showNav={this.showNav}/>
           <HamMenu display={this.state.display} showNav={this.showNav}/>
         </div>
@@ -37,3 +42,10 @@ export default class Nav extends Component
     );
   }
 }
+
+function mapStatetoProps(state)
+{
+  return {cartItems: state.counter};
+}
+
+export default connect(mapStatetoProps)(Nav);

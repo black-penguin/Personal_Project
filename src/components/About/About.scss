@@ -9,11 +9,29 @@
 .about
 {
   height: 68vh;
+  padding: 10px;
   background-color: #454444;
   opacity: .85;
   margin-top: 10px;
   margin-right: 15px;
   margin-left: 15px;
+  color: white;
+  h1
+  {
+    margin: 5px;
+  }
+  a
+  {
+    img
+    {
+      margin: 10px;
+      width: 50px;
+    }
+    img:hover
+    {
+      opacity: .6;
+    }
+  }
 }
 
 @media (min-width:750px)
@@ -39,7 +57,7 @@
   {
     .about
     {
-      height: 69vh;
+      height: 65vh;
     }
   }
 }

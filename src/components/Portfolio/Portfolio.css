@@ -6,11 +6,13 @@
 
 .imgs {
   padding-right: 5%;
-  padding-left: 10%; }
+  padding-left: 10%;
+  overflow-y: scroll;
+  height: 400px; }
 
 @media (min-width: 1000px) {
   #portfolio {
-    font-size: 60px; }
+    font-size: 30px; }
   .imgs {
     padding-left: 4%; } }
 

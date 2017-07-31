@@ -6,11 +6,20 @@
 
 .about {
   height: 68vh;
+  padding: 10px;
   background-color: #454444;
   opacity: .85;
   margin-top: 10px;
   margin-right: 15px;
-  margin-left: 15px; }
+  margin-left: 15px;
+  color: white; }
+  .about h1 {
+    margin: 5px; }
+  .about a img {
+    margin: 10px;
+    width: 50px; }
+  .about a img:hover {
+    opacity: .6; }
 
 @media (min-width: 750px) {
   .about {
@@ -26,7 +35,7 @@
 
 @media (min-width: 1000px) and (min-height: 590px) {
   .about {
-    height: 69vh; } }
+    height: 65vh; } }
 
 @media (min-width: 1400px) {
   #about {
