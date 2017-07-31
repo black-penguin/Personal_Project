@@ -4,6 +4,20 @@
   .single_h h1 {
     margin-top: 5px;
     color: white; }
+  .single_h .total {
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 12px;
+    float: right; }
+    .single_h .total #last {
+      text-decoration: underline; }
+    .single_h .total a {
+      text-decoration: none;
+      color: white; }
+    .single_h .total #add:hover {
+      text-decoration: underline;
+      font-weight: bolder;
+      cursor: pointer; }
   .single_h .sample {
     border: 3px solid white;
     float: left;

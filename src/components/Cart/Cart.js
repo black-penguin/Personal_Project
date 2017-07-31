@@ -27,7 +27,7 @@ class Cart extends Component
     axios.post('http://localhost:3001/payment',
           { token, amount: this.state.total*100 })
          .then(response => {
-      alert('it works!')
+      alert('Payment Sucessful')
     });
   }
 
@@ -72,6 +72,7 @@ class Cart extends Component
           axios.get(`/api/cart/sum/${res.data.identities[0].user_id}`)
           .then(res=>
           {
+            console.log("res", typeof(res.data[0].sum));
             this.setState({
               total:res.data[0].sum
             })
@@ -113,13 +114,23 @@ class Cart extends Component
         </div>
       );
     });
-    const shoppingTotal=(<h1 className="total">${this.state.total}</h1>)
+    const shoppingTotal=(<h1 className="total">${Number(this.state.total)+10+((Number(this.state.total)+10)*.074)}</h1>)
+    const shipping=(<div className="shoppingItem">
+      <h1>Shipping</h1>
+      <h1>$10.00</h1>
+    </div>)
+    const tax=(<div className="shoppingItem">
+      <h1>Sales Tax</h1>
+      <h1>4.7%</h1>
+    </div>)
     return (
       <div>
         <h1 id="cart">Shopping Cart</h1>
         <div className="cart">
           <div className="shopping">
             {shoppingCart}
+            {this.state.user===''?null:shipping}
+            {this.state.user===''?null:tax}
           </div>
           <div id="checkout">
             {this.state.user===''?null:shoppingTotal}

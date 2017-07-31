@@ -16,9 +16,14 @@
   margin-right: 15px;
   margin-left: 15px;
   color: white;
-  h1
+  .info
   {
-    margin: 5px;
+    border: 2px solid white;
+    padding: 5px;
+    h1
+    {
+      margin: 5px;
+    }
   }
   a
   {

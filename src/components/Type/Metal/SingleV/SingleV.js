@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import '../../../../ducks/chooseImage';
+import {cartItems} from '../../../../ducks/chooseImage';
 import Enlarge from "../../Enlarge/Enlarge";
 import "./SingleV.css";
 
@@ -14,6 +14,8 @@ class SingleV extends Component
     this.state=
     {
       picture:[],
+      sizeInfo:[],
+      user: [],
       display:"none",
       select1:"show",
       select2:"",
@@ -59,6 +61,7 @@ class SingleV extends Component
       select6:"",
       size:"select1"
     });
+    this.getPrice(1);
   }
   select2()
   {
@@ -71,6 +74,7 @@ class SingleV extends Component
       select6:"",
       size:"select2"
     });
+    this.getPrice(2);
   }
   select3()
   {
@@ -83,6 +87,7 @@ class SingleV extends Component
       select6:"",
       size:"select3"
     });
+    this.getPrice(3);
   }
   select4()
   {
@@ -95,6 +100,7 @@ class SingleV extends Component
       select6:"",
       size:"select4"
     });
+    this.getPrice(4);
   }
   select5()
   {
@@ -107,6 +113,7 @@ class SingleV extends Component
       select6:"",
       size:"select5"
     });
+    this.getPrice(5);
   }
   select6()
   {
@@ -119,6 +126,35 @@ class SingleV extends Component
       select6:"show",
       size:"select6"
     });
+    this.getPrice(6);
+  }
+
+  getPrice(choice)
+  {
+    axios.get(`/api/size/${choice}`)
+    .then( res =>
+      {
+        this.setState({
+          sizeInfo: res.data[0]
+        })
+      })
+    .catch((err)=>null)
+    axios.get('/me')
+    .then( res =>
+      {
+        if(res.data.displayName)
+        {
+          this.setState({
+            user: res.data.identities[0].user_id
+          })
+        }
+      })
+  }
+
+  addToCart (userID, pictureID, sizeID)
+  {
+    axios.post(`/api/cart/add/${userID}/${pictureID}/${sizeID}`)
+      .then(()=>this.props.cartItems(userID));
   }
 
   componentDidMount()
@@ -135,6 +171,12 @@ class SingleV extends Component
 
     render()
     {
+      const add=(<h1 id="add" onClick={()=>{this.addToCart(this.state.user, this.state.picture.id, this.state.sizeInfo.id)}}>Add to Cart</h1>);
+      const login_btn=(<div id="add">
+                        <a href="http://localhost:3001/auth">
+                          <h1>Login</h1>
+                        </a>
+                      </div>);
       return (
         <div className="single_v" style={{"display":this.props.display}}>
           <h1 className={`item ${this.state.select1}`}  onClick={this.select1}>11 x 14</h1>
@@ -147,7 +189,13 @@ class SingleV extends Component
             <img className={`sample ${this.state.size}`} src={this.state.picture.url} alt={this.state.picture.alt} onClick={this.showModal} />
             <Enlarge display={this.state.display} picture={this.state.img} close={this.closeModal} />
           </div>
-          <h1>add to cart</h1>
+          <div className="total">
+            <h1>${this.state.picture.picprice}.00</h1>
+            <h1 id="last">+ ${this.state.sizeInfo.price}.00</h1>
+            <h1>${0+this.state.sizeInfo.price+this.state.picture.picprice}.00</h1>
+            <br />
+            {this.state.user.length<1?login_btn:add}
+          </div>
         </div>
       );
     }
@@ -158,4 +206,4 @@ class SingleV extends Component
   	return {img: state.img};
   }
 
-  export default connect(mapStatetoProps)(SingleV);
+  export default connect(mapStatetoProps, {cartItems})(SingleV);

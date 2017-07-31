@@ -9,8 +9,11 @@
     border-radius: 10px;
     padding: 12px;
     float: right; }
-    .single .total #ship {
+    .single .total #last {
       text-decoration: underline; }
+    .single .total a {
+      text-decoration: none;
+      color: white; }
     .single .total #add:hover {
       text-decoration: underline;
       font-weight: bolder;
@@ -59,7 +62,7 @@
   .single .sample {
     border: 3px solid white;
     float: left;
-    clear: both;
+    clear: left;
     margin-top: 10px;
     margin-right: 20px;
     cursor: pointer; }

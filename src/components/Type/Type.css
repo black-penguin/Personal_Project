@@ -10,7 +10,9 @@
   opacity: .85;
   margin-top: 10px;
   margin-left: 15px;
-  padding: 10px; }
+  padding: 10px;
+  overflow-y: scroll;
+  height: 400px; }
   .type .item {
     font-size: 14px;
     color: white;

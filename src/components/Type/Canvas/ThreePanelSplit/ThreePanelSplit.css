@@ -9,8 +9,11 @@
     border-radius: 10px;
     padding: 12px;
     float: right; }
-    .three_panel_split .total #ship {
+    .three_panel_split .total #last {
       text-decoration: underline; }
+    .three_panel_split .total a {
+      text-decoration: none;
+      color: white; }
     .three_panel_split .total #add:hover {
       text-decoration: underline;
       font-weight: bolder;

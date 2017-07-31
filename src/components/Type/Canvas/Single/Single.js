@@ -270,7 +270,7 @@ class Single extends Component
           </div>
           <div className="total">
             <h1>${this.state.picture.picprice}.00</h1>
-            <h1>+ ${this.state.sizeInfo.price}.00</h1>
+            <h1 id="last">+ ${this.state.sizeInfo.price}.00</h1>
             <h1>${0+this.state.sizeInfo.price+this.state.picture.picprice}.00</h1>
             <br />
             {this.state.user.length<1?login_btn:add}

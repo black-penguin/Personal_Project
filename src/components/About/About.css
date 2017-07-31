@@ -13,8 +13,11 @@
   margin-right: 15px;
   margin-left: 15px;
   color: white; }
-  .about h1 {
-    margin: 5px; }
+  .about .info {
+    border: 2px solid white;
+    padding: 5px; }
+    .about .info h1 {
+      margin: 5px; }
   .about a img {
     margin: 10px;
     width: 50px; }

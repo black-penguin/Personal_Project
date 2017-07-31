@@ -20,11 +20,17 @@
     {
       color: red;
       cursor: pointer;
-      padding: 10px;
+      padding: 5px;
     }
     img
     {
       width:50px;
+    }
+    .rm:hover
+    {
+      border: 2px solid white;
+      border-radius: 10px;
+      font-weight: bold;
     }
   }
 }

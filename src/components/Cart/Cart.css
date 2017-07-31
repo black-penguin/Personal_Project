@@ -17,9 +17,13 @@
     .shopping .shoppingItem .rm {
       color: red;
       cursor: pointer;
-      padding: 10px; }
+      padding: 5px; }
     .shopping .shoppingItem img {
       width: 50px; }
+    .shopping .shoppingItem .rm:hover {
+      border: 2px solid white;
+      border-radius: 10px;
+      font-weight: bold; }
 
 #cart {
   color: white;
