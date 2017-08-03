@@ -47,7 +47,6 @@ class Cart extends Component
   {
     this.state.cart.map((item, i) =>
     {
-      console.log("item", item.auth0id, item.picid, item.sizeid);
       axios.post(`/api/cart/history/add/${item.auth0id}/${item.picid}/${item.sizeid}`)
         .then(()=>null);
     })

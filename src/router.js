@@ -8,6 +8,7 @@ import Contact from './components/Contact/Contact';
 import Profile from './components/Profile/Profile';
 import Type from './components/Type/Type';
 import Cart from './components/Cart/Cart';
+import History from './components/History/History';
 
 export default (
   <Switch>
@@ -18,5 +19,6 @@ export default (
     <Route component={Profile} path="/profile" />
     <Route component={Type} path="/type" />
     <Route component={Cart} path="/cart" />
+    <Route component={History} path="/History" />
   </Switch>
 )

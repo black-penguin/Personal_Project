@@ -78,11 +78,22 @@ module.exports=
   addCartHistory:(req, res)=>
   {
     const dbInstance=req.app.get('db');
-    console.log("controller", req.params.userID, req.params.pictureID, req.params.sizeID);
     dbInstance.addCartHistory(req.params.userID, req.params.pictureID, req.params.sizeID)
     .then((users)=>
     {
       res.status(200).send("it worked")
+    })
+    .catch((err)=>
+      res.status(404).send(err));
+  },
+  getHistory:(req, res)=>
+  {
+    const dbInstance=req.app.get('db');
+    console.log(req.params.id);
+    dbInstance.getHistory(req.params.id)
+    .then((cart)=>
+    {
+      res.status(200).send(cart)
     })
     .catch((err)=>
       res.status(404).send(err));
