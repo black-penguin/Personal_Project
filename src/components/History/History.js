@@ -58,9 +58,10 @@ export default class History extends Component
           <h1>{item.alt}</h1>
           <h1>{item.type}</h1>
           <h1>{item.size}</h1>
-          <h1>${item.price+item.picprice}</h1>
+          <h1>${Math.round((item.price+item.picprice+10.00+((item.price+item.picprice+10.00)*.047)) * 100) / 100}</h1>
         </div>
       );
+      {Math.round((item.price+item.picprice+10.00+((item.price+item.picprice+10.00)*.047)) * 100) / 100}
     });
     return (
       <div>

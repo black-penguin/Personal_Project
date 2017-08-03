@@ -26,7 +26,7 @@ class Cart extends Component
   {
     token.card = void 0;
     axios.post('http://localhost:3001/payment',
-          { token, amount: (Number(this.state.total)+10+((Number(this.state.total)+10)*.074))*100 })
+          { token, amount: (Number(this.state.total)+((this.state.cart.length)*10.00)+((Number(this.state.total)+((this.state.cart.length)*10.00))*.047))*100 })
         .then(response =>
         {
           this.addCartHistory();
@@ -116,7 +116,7 @@ class Cart extends Component
     const purchase=(<StripeCheckout
                       token={this.onToken}
                       stripeKey={stripe.pub_key}
-                      amount={(Number(this.state.total)+10+((Number(this.state.total)+10)*.074))*100}
+                      amount={(Number(this.state.total)+((this.state.cart.length)*10.00)+((Number(this.state.total)+((this.state.cart.length)*10.00))*.047))*100}
                       email={this.state.email}
                       shippingAddress
                       billingAddress>
@@ -135,7 +135,7 @@ class Cart extends Component
         </div>
       );
     });
-    const shoppingTotal=(<h1 className="total">${Number(this.state.total)+10+((Number(this.state.total)+10)*.074)}</h1>)
+    const shoppingTotal=(<h1 className="total">${Math.round((Number(this.state.total)+((this.state.cart.length)*10.00)+((Number(this.state.total)+((this.state.cart.length)*10.00))*.047)) * 100) / 100}</h1>)
     const shipping=(<div className="shoppingItem">
       <h1>Shipping</h1>
       <h1>$10.00</h1>
