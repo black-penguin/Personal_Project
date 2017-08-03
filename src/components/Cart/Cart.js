@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import StripeCheckout from 'react-stripe-checkout';
 import stripe from './stripeKey';
 import axios from 'axios';
-import {decrement} from '../../ducks/chooseImage';
+import {cartItems} from '../../ducks/chooseImage';
 import "./Cart.css";
 
 class Cart extends Component
@@ -19,6 +19,7 @@ class Cart extends Component
       cart:[]
     }
     this.removeCart=this.removeCart.bind(this);
+    this.addCartHistory=this.addCartHistory
   }
 
   onToken = (token) =>
@@ -26,28 +27,30 @@ class Cart extends Component
     token.card = void 0;
     axios.post('http://localhost:3001/payment',
           { token, amount: (Number(this.state.total)+10+((Number(this.state.total)+10)*.074))*100 })
-        .then(response => {
+        .then(response =>
+        {
+          this.addCartHistory();
           axios.delete(`/api/cart/clear/${this.state.userID}`)
-            .then(res=>{
-              this.setState({
-                cart: res.data
+            .then(res=>
+            {
+              this.setState(
+              {
+                cart: [],
+                total:0
               })
-              axios.get(`/api/cart/${this.state.userID}`)
-              .then( res =>
-                {
-                  this.setState({
-                    cart: res.data
-                  })
-                });
-                axios.get(`/api/cart/sum/${this.state.userID}`)
-                .then(res=>
-                  {
-                    this.setState({
-                      total:res.data[0].sum
-                    })
-                  })
-            })
-    });
+              this.props.cartItems(this.state.userID)
+          })
+        });
+  }
+
+  addCartHistory ()
+  {
+    this.state.cart.map((item, i) =>
+    {
+      console.log("item", item.auth0id, item.picid, item.sizeid);
+      axios.post(`/api/cart/history/add/${item.auth0id}/${item.picid}/${item.sizeid}`)
+        .then(()=>null);
+    })
   }
 
   removeCart(id)
@@ -70,8 +73,8 @@ class Cart extends Component
           this.setState({
             total:res.data[0].sum
           })
+          this.props.cartItems(this.state.userID)
         })
-        this.props.decrement(1);
   }
 
   componentDidMount()
@@ -166,4 +169,4 @@ function mapStatetoProps(state)
   return {counter: state.counter};
 }
 
-export default connect(mapStatetoProps, {decrement})(Cart);
+export default connect(mapStatetoProps, {cartItems})(Cart);

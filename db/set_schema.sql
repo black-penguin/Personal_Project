@@ -1,4 +1,4 @@
-drop table if exists users, pictures, sizeChart, shoppingCart;
+drop table if exists users, pictures, sizeChart, shoppingCart, cartHistory;
 
 create table users(ID serial primary key, auth0ID text, name text, email text);
 
@@ -77,3 +77,5 @@ insert into sizeChart(type, size, price) values ('Canvas 3-panel', '36 x 27 3-12
 
 
 create table shoppingCart(id serial primary key, auth0ID text, picID int, SizeID int);
+
+create table cartHistory(id serial primary key, auth0ID text, picID int, SizeID int);

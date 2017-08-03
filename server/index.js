@@ -176,6 +176,7 @@ massive(connectionString).then(dbInstance =>
   app.get("/api/cart/sum/:id", controllers.totalCart);
 
   app.post("/api/cart/add/:userID/:pictureID/:SizeID", controllers.addToCart);
+  app.post("/api/cart/history/add/:userID/:pictureID/:sizeID", controllers.addCartHistory);
 
   app.delete("/api/cart/rm/:id", controllers.rmCart);
   app.delete("/api/cart/clear/:id", controllers.clearCart);

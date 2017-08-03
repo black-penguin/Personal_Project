@@ -75,6 +75,18 @@ module.exports=
       .then( (cart) => res.status(200).send(cart) )
       .catch( () => res.status(500).send() );
   },
+  addCartHistory:(req, res)=>
+  {
+    const dbInstance=req.app.get('db');
+    console.log("controller", req.params.userID, req.params.pictureID, req.params.sizeID);
+    dbInstance.addCartHistory(req.params.userID, req.params.pictureID, req.params.sizeID)
+    .then((users)=>
+    {
+      res.status(200).send("it worked")
+    })
+    .catch((err)=>
+      res.status(404).send(err));
+  },
   totalCart:(req, res)=>
   {
     const dbInstance=req.app.get('db');
