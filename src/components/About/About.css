@@ -12,12 +12,16 @@
   margin-top: 10px;
   margin-right: 15px;
   margin-left: 15px;
-  color: white; }
+  color: white;
+  font-size: 30px; }
   .about .info {
     border: 2px solid white;
+    height: 270px;
+    margin-top: 5px;
     padding: 5px; }
-    .about .info h1 {
-      margin: 5px; }
+    .about .info .details h1 {
+      margin: 5px;
+      font-size: 20px; }
   .about a img {
     margin: 10px;
     width: 50px; }

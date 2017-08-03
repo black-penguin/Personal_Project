@@ -11,21 +11,23 @@ export default class About extends Component
       <div>
         <h1 id="about">About</h1>
         <div className="about">
+        <h1>Personal Project for DevMountain in Provo, Utah </h1>
           <div className="info">
-            <h1>Personal Project for DevMountain in Provo, Utah </h1>
-            <h1>- Html</h1>
-            <h1>- Css</h1>
-            <h1>- Sass</h1>
-            <h1>- React</h1>
-            <h1>- React Redux</h1>
-            <h1>- Axios</h1>
-            <h1>- Node.js</h1>
-            <h1>- PostgreSQL</h1>
-            <h1>- Stripe</h1>
-            <h1>- Auth0</h1>
+            <div className="details">
+              <h1>- Html - Css -Sass</h1>
+              <h1>- React - React Redux</h1>
+              <h1>- redux-promise-middleware</h1>
+              <h1>- Axios - Node.js</h1>
+              <h1>- PostgreSQL</h1>
+              <h1>- React-router-dom</h1>
+              <h1>- Stripe - Auth0</h1>
+              <h1>- Body-parser</h1>
+              <h1>- Express</h1>
+              <h1>- Massive</h1>
+            </div>
           </div>
           <a href="https://github.com/black-penguin">
-            <img src={gitHub} />
+            <img alt="gitHub logo" src={gitHub} />
           </a>
         </div>
       </div>

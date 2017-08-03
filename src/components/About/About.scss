@@ -16,13 +16,21 @@
   margin-right: 15px;
   margin-left: 15px;
   color: white;
+  font-size: 30px;
   .info
   {
     border: 2px solid white;
+    height: 270px;
+    margin-top: 5px;
     padding: 5px;
-    h1
+    .details
     {
-      margin: 5px;
+      // display: flex;
+      h1
+      {
+        margin: 5px;
+        font-size: 20px;
+      }
     }
   }
   a

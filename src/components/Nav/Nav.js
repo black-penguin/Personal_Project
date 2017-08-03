@@ -30,7 +30,6 @@ class Nav extends Component
   render()
   {
     const totalItems=(<span id="cartItems">{this.props.cartItems}</span>);
-    console.log("cart", this.props.cartItems);
     return (
       <div>
         <div>

@@ -19,9 +19,6 @@ const HamMenu=(props) =>
         <Link className="nav" to="/cart">
           <h4>Shopping Cart</h4>
         </Link>
-        <Link className="nav" to="/contact">
-          <h4>Contact</h4>
-        </Link>
       </div>
     )
 }

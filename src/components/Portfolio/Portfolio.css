@@ -9,6 +9,26 @@
   padding-left: 10%;
   overflow-y: scroll;
   height: 400px; }
+  .imgs .more {
+    color: white;
+    position: absolute;
+    bottom: 120px;
+    right: 50px;
+    padding: 5px;
+    cursor: pointer; }
+  .imgs .less {
+    color: white;
+    position: absolute;
+    bottom: 120px;
+    right: 100px;
+    padding: 5px;
+    cursor: pointer; }
+  .imgs .more:hover {
+    border: 2px solid white;
+    border-radius: 10px; }
+  .imgs .less:hover {
+    border: 2px solid white;
+    border-radius: 10px; }
 
 @media (min-width: 1000px) {
   #portfolio {

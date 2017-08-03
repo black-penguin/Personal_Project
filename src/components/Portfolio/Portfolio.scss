@@ -12,6 +12,34 @@
   padding-left: 10%;
   overflow-y:scroll;
   height: 400px;
+  .more
+  {
+    color: white;
+    position: absolute;
+    bottom: 120px;
+    right: 50px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .less
+  {
+    color: white;
+    position: absolute;
+    bottom: 120px;
+    right: 100px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .more:hover
+  {
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+  .less:hover
+  {
+    border: 2px solid white;
+    border-radius: 10px;
+  }
 }
 
 @media (min-width:1000px)

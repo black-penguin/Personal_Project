@@ -6,7 +6,7 @@ const Auth0Strategy = require('passport-auth0');
 const cors = require('cors');
 const massive = require('massive');
 const config = require('./config');
-const controllers = require('./controllers/controller')
+const controllers = require('./controllers/controller');
 
 const stripe = require('stripe')(config.secret_key);
 const connectionString=config.connectionString;
@@ -152,14 +152,16 @@ massive(connectionString).then(dbInstance =>
     amount: convertedAmt, // amount in cents, again
     currency: 'usd',
     source: req.body.token.id,
-    description: 'Test charge from react app'
+    description: 'AmidstTheMountains Photography'
     },
     function(err, charge)
     {
         if (err)
+        {
           return res.sendStatus(500);
-        return
-          res.sendStatus(200);
+        }
+        else
+          return res.sendStatus(200);
       // if (err && err.type === 'StripeCardError') {
       //   // The card has been declined
       // }
@@ -176,6 +178,7 @@ massive(connectionString).then(dbInstance =>
   app.post("/api/cart/add/:userID/:pictureID/:SizeID", controllers.addToCart);
 
   app.delete("/api/cart/rm/:id", controllers.rmCart);
+  app.delete("/api/cart/clear/:id", controllers.clearCart);
 });
 
 app.listen(config.port, console.log("it works!"));

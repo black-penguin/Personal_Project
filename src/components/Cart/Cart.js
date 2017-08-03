@@ -25,9 +25,28 @@ class Cart extends Component
   {
     token.card = void 0;
     axios.post('http://localhost:3001/payment',
-          { token, amount: this.state.total*100 })
-         .then(response => {
-      alert('Payment Sucessful')
+          { token, amount: (Number(this.state.total)+10+((Number(this.state.total)+10)*.074))*100 })
+        .then(response => {
+          axios.delete(`/api/cart/clear/${this.state.userID}`)
+            .then(res=>{
+              this.setState({
+                cart: res.data
+              })
+              axios.get(`/api/cart/${this.state.userID}`)
+              .then( res =>
+                {
+                  this.setState({
+                    cart: res.data
+                  })
+                });
+                axios.get(`/api/cart/sum/${this.state.userID}`)
+                .then(res=>
+                  {
+                    this.setState({
+                      total:res.data[0].sum
+                    })
+                  })
+            })
     });
   }
 
@@ -72,7 +91,6 @@ class Cart extends Component
           axios.get(`/api/cart/sum/${res.data.identities[0].user_id}`)
           .then(res=>
           {
-            console.log("res", typeof(res.data[0].sum));
             this.setState({
               total:res.data[0].sum
             })
@@ -96,9 +114,10 @@ class Cart extends Component
     const purchase=(<StripeCheckout
                       token={this.onToken}
                       stripeKey={stripe.pub_key}
-                      amount={this.state.total*100}
+                      amount={(Number(this.state.total)+10+((Number(this.state.total)+10)*.074))*100}
                       email={this.state.email}
-                      shippingAddress>
+                      shippingAddress
+                      billingAddress>
                       Checkout
                     </StripeCheckout>);
     const shoppingCart= this.state.cart.map((item, i) =>
