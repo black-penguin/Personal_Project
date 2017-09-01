@@ -13,7 +13,7 @@ const connectionString=config.connectionString;
 
 const app = express();
 
-//app.use(express.statis(_dirname+'/../build'));
+// app.use(express.statis(_dirname+'/../build'));
 
 app.use(bodyParser.json());
 app.use(cors());

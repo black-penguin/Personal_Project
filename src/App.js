@@ -6,7 +6,6 @@ import background from "./img/bear_lake.jpg";
 import router from './router';
 import Login from './components/Login/Login';
 import Nav from './components/Nav/Nav';
-import Footer from './components/Footer/Footer';
 
 class App extends Component
 {
@@ -18,7 +17,6 @@ class App extends Component
         <Nav />
         <Login />
         { router }
-        <Footer />
       </div>
     );
   }

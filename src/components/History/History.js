@@ -24,7 +24,6 @@ export default class History extends Component
       {
         if(res.data.displayName)
         {
-          console.log(res.data.identities[0].user_id);
           axios.get(`/api/cart/history/${res.data.identities[0].user_id}`)
           .then( res =>
             {

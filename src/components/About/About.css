@@ -17,8 +17,8 @@
   .about .info {
     border: 2px solid white;
     height: 270px;
-    margin-top: 5px;
-    padding: 5px; }
+    margin: 10px;
+    padding: 10px; }
     .about .info .details h1 {
       margin: 5px;
       font-size: 20px; }
@@ -42,7 +42,7 @@
 
 @media (min-width: 1000px) and (min-height: 590px) {
   .about {
-    height: 65vh; } }
+    height: 80vh; } }
 
 @media (min-width: 1400px) {
   #about {

@@ -48,7 +48,7 @@ class Cart extends Component
     this.state.cart.map((item, i) =>
     {
       axios.post(`/api/cart/history/add/${item.auth0id}/${item.picid}/${item.sizeid}`)
-        .then(()=>null);
+        .then((res)=>null);
     })
   }
 
@@ -58,22 +58,22 @@ class Cart extends Component
     .then( res =>
       {
         this.state.cart.splice(this.state.cart.length-1, 1);
+        axios.get(`/api/cart/${this.state.userID}`)
+        .then( res =>
+          {
+            this.setState({
+              cart: res.data
+            })
+            axios.get(`/api/cart/sum/${this.state.userID}`)
+            .then(res=>
+              {
+                this.setState({
+                  total:res.data[0].sum
+                })
+                this.props.cartItems(this.state.userID)
+              })
+          });
       });
-      axios.get(`/api/cart/${this.state.userID}`)
-      .then( res =>
-        {
-          this.setState({
-            cart: res.data
-          })
-        });
-      axios.get(`/api/cart/sum/${this.state.userID}`)
-        .then(res=>
-        {
-          this.setState({
-            total:res.data[0].sum
-          })
-          this.props.cartItems(this.state.userID)
-        })
   }
 
   componentDidMount()

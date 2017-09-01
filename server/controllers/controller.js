@@ -89,7 +89,6 @@ module.exports=
   getHistory:(req, res)=>
   {
     const dbInstance=req.app.get('db');
-    console.log(req.params.id);
     dbInstance.getHistory(req.params.id)
     .then((cart)=>
     {
