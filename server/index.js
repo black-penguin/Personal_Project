@@ -184,8 +184,8 @@ massive(connectionString).then(dbInstance =>
   app.delete("/api/cart/clear/:id", controllers.clearCart);
 
   app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../build/index.html'))
+    res.sendFile(path.join(__dirname, '/build/index.html'))
   });
 });
 
-app.listen(config.port, console.log("it works!"));
+app.listen(config.port, console.log(`listening to port ${config.port}`));
