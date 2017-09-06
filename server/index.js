@@ -7,13 +7,14 @@ const cors = require('cors');
 const massive = require('massive');
 const config = require('./config');
 const controllers = require('./controllers/controller');
+const path = require('path');
 
 const stripe = require('stripe')(config.secret_key);
 const connectionString=config.connectionString;
 
 const app = express();
 
-// app.use(express.statis(_dirname+'/../build'));
+app.use(express.static(__dirname + '/build'));
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -181,6 +182,10 @@ massive(connectionString).then(dbInstance =>
 
   app.delete("/api/cart/rm/:id", controllers.rmCart);
   app.delete("/api/cart/clear/:id", controllers.clearCart);
+
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/../build/index.html'))
+  });
 });
 
 app.listen(config.port, console.log("it works!"));
